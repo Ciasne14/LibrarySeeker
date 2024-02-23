@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clj3npjnn38wl"
-path.s3tc="res://.godot/imported/wood_0032_color_1k.jpg-d1397dab0a41021e1e6618de77897133.s3tc.ctex"
+path.s3tc="res://.godot/imported/wood_0032_color_1k.jpg-6448d75ba7b89d194237365b152e3b28.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Bookshelf wooden texture/wood_0032_color_1k.jpg"
-dest_files=["res://.godot/imported/wood_0032_color_1k.jpg-d1397dab0a41021e1e6618de77897133.s3tc.ctex"]
+source_file="res://textures/Bookshelf wooden texture/wood_0032_color_1k.jpg"
+dest_files=["res://.godot/imported/wood_0032_color_1k.jpg-6448d75ba7b89d194237365b152e3b28.s3tc.ctex"]
 
 [params]
 

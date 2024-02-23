@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=11 format=3 uid="uid://bt60x0t52not"]
 
-[ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://Textures/wood_floor_diff_4k.jpg" id="1_6vygr"]
+[ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://textures/wood_floor_diff_4k.jpg" id="1_6vygr"]
+[ext_resource type="Script" path="res://Scenes/Scripts/library.gd" id="1_64ouq"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
-[ext_resource type="Texture2D" uid="uid://cye5t788tgqf6" path="res://Textures/wood_floor_disp_4k.png" id="2_bx5tj"]
+[ext_resource type="Texture2D" uid="uid://cye5t788tgqf6" path="res://textures/wood_floor_disp_4k.png" id="2_bx5tj"]
 [ext_resource type="PackedScene" uid="uid://s22t6e7wvmrr" path="res://bookcase.tscn" id="4_urprm"]
 [ext_resource type="PackedScene" uid="uid://d0kudf0cj8w78" path="res://wall.tscn" id="5_5tym4"]
 
@@ -22,9 +23,14 @@ size = Vector2(300, 300)
 [sub_resource type="Environment" id="Environment_e67bv"]
 
 [node name="Library" type="Node3D"]
+script = ExtResource("1_64ouq")
 
 [node name="Player" parent="." instance=ExtResource("1_gsflu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 1, 42)
+
+[node name="Player2" parent="." instance=ExtResource("1_gsflu")]
+unique_name_in_owner = true
+transform = Transform3D(-0.720006, 0, 0.693967, 0, 1, 0, -0.693967, 0, -0.720006, 113.758, 1, -66.0168)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

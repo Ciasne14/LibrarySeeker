@@ -1,0 +1,94 @@
+extends Control
+
+@onready var address_input = %Address
+@onready var host_btn = %Host
+@onready var join_btn = %Join
+@onready var status_label = %Status
+
+const DEFAULT_PORT = 8910
+var peer: ENetMultiplayerPeer
+
+func _ready():
+		# Connect all the callbacks related to networking.
+	multiplayer.peer_connected.connect(self._player_connected)
+	multiplayer.peer_disconnected.connect(self._player_disconnected)
+	multiplayer.connected_to_server.connect(self._connected_ok)
+	multiplayer.connection_failed.connect(self._connected_fail)
+	multiplayer.server_disconnected.connect(self._server_disconnected)
+
+# Callback from SceneTree.
+func _player_connected(_id):
+	# Someone connected, start the game!
+	var library = load("res://Scenes/library.tscn").instantiate()
+	# Connect deferred so we can safely erase it from the callback.
+	library.game_finished.connect(self._end_game, CONNECT_DEFERRED)
+
+	get_tree().get_root().add_child(library)
+	hide()
+
+
+func _player_disconnected(_id):
+	if multiplayer.is_server():
+		_end_game("Client disconnected")
+	else:
+		_end_game("Server disconnected")
+
+# Callback from SceneTree, only for clients (not server).
+func _connected_ok():
+	pass # This function is not needed for this project.
+
+
+# Callback from SceneTree, only for clients (not server).
+func _connected_fail():
+	status_label.set_text("Couldn't connect.")
+
+	multiplayer.set_multiplayer_peer(null) # Remove peer.
+	host_btn.set_disabled(false)
+	join_btn.set_disabled(false)
+
+
+func _server_disconnected():
+	_end_game("Server disconnected.")
+
+##### Game creation functions ######
+
+func _end_game(with_error = ""):
+	if has_node("/root/Library"):
+		# Erase immediately, otherwise network might show
+		# errors (this is why we connected deferred above).
+		get_node(^"/root/Library").free()
+		show()
+
+	multiplayer.set_multiplayer_peer(null) # Remove peer.
+	host_btn.set_disabled(false)
+	join_btn.set_disabled(false)
+
+	status_label.set_text(with_error)
+
+func _on_host_pressed():
+	peer = ENetMultiplayerPeer.new()
+	var err = peer.create_server(DEFAULT_PORT, 1) # Maximum of 1 peer, since it's a 2-player game.
+	if err != OK:
+		# Is another server running?
+		status_label.set_text("Can't host, address in use.")
+		return
+	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
+
+	multiplayer.set_multiplayer_peer(peer)
+	host_btn.set_disabled(true)
+	join_btn.set_disabled(true)
+	status_label.set_text("Waiting for player...")
+
+
+func _on_join_pressed():
+	var ip = address_input.get_text()
+	if not ip.is_valid_ip_address():
+		status_label.set_text("IP address is invalid.")
+		return
+
+	peer = ENetMultiplayerPeer.new()
+	peer.create_client(ip, DEFAULT_PORT)
+	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
+	multiplayer.set_multiplayer_peer(peer)
+
+	status_label.set_text("Connecting...")
