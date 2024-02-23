@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=8 format=3 uid="uid://bt60x0t52not"]
 
 [ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://Textures/wood_floor_diff_4k.jpg" id="1_6vygr"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
 [ext_resource type="Texture2D" uid="uid://cye5t788tgqf6" path="res://Textures/wood_floor_disp_4k.png" id="2_bx5tj"]
+[ext_resource type="PackedScene" uid="uid://s22t6e7wvmrr" path="res://bookcase.tscn" id="4_urprm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3j74p"]
 size = Vector3(297.614, 0.630859, 299.057)
@@ -30,3 +31,24 @@ shape = SubResource("BoxShape3D_3j74p")
 [node name="Ground" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_h1luj")
 skeleton = NodePath("../..")
+
+[node name="Bookcase" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.375351, 0, -0.926883, 0, 1, 0, 0.926883, 0, 0.375351, -4.25852, 1, -31.2019)
+
+[node name="Bookcase2" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2219, 1, -10.6416)
+
+[node name="Bookcase3" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.0241181, 0, 0.999709, 0, 1, 0, -0.999709, 0, 0.0241181, 5.44547, 1, 26.9629)
+
+[node name="Bookcase4" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375088, 1, 71.9066)
+
+[node name="Bookcase5" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.703854, 0, -0.710345, 0, 1, 0, 0.710345, 0, 0.703854, -67.8503, 1, -44.6146)
+
+[node name="Bookcase6" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8152, 1, -9.78159)
+
+[node name="Bookcase7" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4177, 1, 24.4895)
