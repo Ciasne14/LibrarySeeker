@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bt60x0t52not"]
 
-[ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://textures/wood_floor_diff_4k.jpg" id="1_6vygr"]
-[ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://player.tscn" id="1_gsflu"]
-[ext_resource type="Texture2D" uid="uid://cye5t788tgqf6" path="res://textures/wood_floor_disp_4k.png" id="2_bx5tj"]
+[ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://Textures/wood_floor_diff_4k.jpg" id="1_6vygr"]
+[ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
+[ext_resource type="Texture2D" uid="uid://cye5t788tgqf6" path="res://Textures/wood_floor_disp_4k.png" id="2_bx5tj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3j74p"]
 size = Vector3(297.614, 0.630859, 299.057)
