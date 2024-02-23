@@ -10,10 +10,10 @@ func _ready():
 	# set_multiplayer_authority is tree-recursive by default.
 	if multiplayer.is_server():
 		# For the server, give control of player 2 to the other peer.
-		player2.set_multiplayer_authority(multiplayer.get_peers()[0])
+		player2.set_multiplayer_authority(multiplayer.get_unique_id())
 	else:
 		# For the client, give control of player 2 to itself.
-		player2.set_multiplayer_authority(multiplayer.get_unique_id())
+		player2.set_multiplayer_authority(multiplayer.get_peers()[0])
 
 	print("Unique id: ", multiplayer.get_unique_id())
 
