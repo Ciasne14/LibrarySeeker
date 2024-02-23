@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=10 format=3 uid="uid://bt60x0t52not"]
 
 [ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://Textures/wood_floor_diff_4k.jpg" id="1_6vygr"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
 [ext_resource type="Texture2D" uid="uid://cye5t788tgqf6" path="res://Textures/wood_floor_disp_4k.png" id="2_bx5tj"]
 [ext_resource type="PackedScene" uid="uid://s22t6e7wvmrr" path="res://bookcase.tscn" id="4_urprm"]
+[ext_resource type="PackedScene" uid="uid://d0kudf0cj8w78" path="res://wall.tscn" id="5_5tym4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3j74p"]
 size = Vector3(297.614, 0.630859, 299.057)
@@ -18,10 +19,12 @@ uv1_scale = Vector3(60, 60, 60)
 material = SubResource("StandardMaterial3D_6a18a")
 size = Vector2(300, 300)
 
+[sub_resource type="Environment" id="Environment_e67bv"]
+
 [node name="Library" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_gsflu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.95516, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 1, 42)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -33,22 +36,376 @@ mesh = SubResource("PlaneMesh_h1luj")
 skeleton = NodePath("../..")
 
 [node name="Bookcase" parent="." instance=ExtResource("4_urprm")]
-transform = Transform3D(0.375351, 0, -0.926883, 0, 1, 0, 0.926883, 0, 0.375351, -4.25852, 1, -31.2019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54.523)
 
 [node name="Bookcase2" parent="." instance=ExtResource("4_urprm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2219, 1, -10.6416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 65.523)
 
 [node name="Bookcase3" parent="." instance=ExtResource("4_urprm")]
-transform = Transform3D(0.0241181, 0, 0.999709, 0, 1, 0, -0.999709, 0, 0.0241181, 5.44547, 1, 26.9629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 76.523)
 
 [node name="Bookcase4" parent="." instance=ExtResource("4_urprm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375088, 1, 71.9066)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 87.523)
 
 [node name="Bookcase5" parent="." instance=ExtResource("4_urprm")]
-transform = Transform3D(0.703854, 0, -0.710345, 0, 1, 0, 0.710345, 0, 0.703854, -67.8503, 1, -44.6146)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.55228, 0, 54.523)
 
 [node name="Bookcase6" parent="." instance=ExtResource("4_urprm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8152, 1, -9.78159)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.55228, 0, 65.523)
 
 [node name="Bookcase7" parent="." instance=ExtResource("4_urprm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4177, 1, 24.4895)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.55228, 0, 76.523)
+
+[node name="Bookcase8" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.55228, 0, 87.523)
+
+[node name="Bookcase9" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1331, 0, 54.523)
+
+[node name="Bookcase10" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1331, 0, 65.523)
+
+[node name="Bookcase11" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1331, 0, 76.523)
+
+[node name="Bookcase12" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1331, 0, 87.523)
+
+[node name="Bookcase13" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.6854, 0, 54.523)
+
+[node name="Bookcase14" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.6854, 0, 65.523)
+
+[node name="Bookcase15" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.6854, 0, 76.523)
+
+[node name="Bookcase16" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.6854, 0, 87.523)
+
+[node name="Bookcase17" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, 54.523)
+
+[node name="Bookcase18" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, 65.523)
+
+[node name="Bookcase19" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, 76.523)
+
+[node name="Bookcase20" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, 87.523)
+
+[node name="Bookcase21" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, 54.523)
+
+[node name="Bookcase22" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, 65.523)
+
+[node name="Bookcase23" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, 76.523)
+
+[node name="Bookcase24" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, 87.523)
+
+[node name="Bookcase25" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, -9.24544)
+
+[node name="Bookcase26" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, 1.75456)
+
+[node name="Bookcase27" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, 12.7546)
+
+[node name="Bookcase28" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1418, 0, 23.7546)
+
+[node name="Bookcase29" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, -9.24544)
+
+[node name="Bookcase30" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, 1.75456)
+
+[node name="Bookcase31" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, 12.7546)
+
+[node name="Bookcase32" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -61.6941, 0, 23.7546)
+
+[node name="Bookcase33" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0078, 0, -9.24544)
+
+[node name="Bookcase34" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0078, 0, 1.75456)
+
+[node name="Bookcase35" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0078, 0, 12.7546)
+
+[node name="Bookcase36" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0078, 0, 23.7546)
+
+[node name="Bookcase37" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30.5601, 0, -9.24544)
+
+[node name="Bookcase38" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30.5601, 0, 1.75456)
+
+[node name="Bookcase39" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30.5601, 0, 12.7546)
+
+[node name="Bookcase40" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30.5601, 0, 23.7546)
+
+[node name="Bookcase81" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 57.11, 0, -47.2249)
+
+[node name="Bookcase82" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 46.11, 0, -47.232)
+
+[node name="Bookcase83" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 35.11, 0, -47.2391)
+
+[node name="Bookcase84" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 24.11, 0, -47.2462)
+
+[node name="Bookcase85" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 57.1123, 0, -50.7772)
+
+[node name="Bookcase86" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 46.1123, 0, -50.7843)
+
+[node name="Bookcase87" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 35.1123, 0, -50.7914)
+
+[node name="Bookcase88" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 24.1123, 0, -50.7985)
+
+[node name="Bookcase89" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 57.11, 0, -71.9821)
+
+[node name="Bookcase90" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 46.11, 0, -71.9892)
+
+[node name="Bookcase91" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 35.11, 0, -71.9963)
+
+[node name="Bookcase92" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 24.11, 0, -72.0034)
+
+[node name="Bookcase93" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 57.1123, 0, -75.5343)
+
+[node name="Bookcase94" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 46.1123, 0, -75.5414)
+
+[node name="Bookcase95" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 35.1123, 0, -75.5485)
+
+[node name="Bookcase96" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 24.1123, 0, -75.5556)
+
+[node name="Bookcase97" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 57.11, 0, -101.616)
+
+[node name="Bookcase98" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 46.11, 0, -101.623)
+
+[node name="Bookcase99" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 35.11, 0, -101.63)
+
+[node name="Bookcase100" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, 24.11, 0, -101.637)
+
+[node name="Bookcase101" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 57.1123, 0, -105.168)
+
+[node name="Bookcase102" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 46.1123, 0, -105.175)
+
+[node name="Bookcase103" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 35.1123, 0, -105.182)
+
+[node name="Bookcase104" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, 24.1123, 0, -105.189)
+
+[node name="Bookcase105" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, -20.1624, 0, -79.4842)
+
+[node name="Bookcase106" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, -31.1624, 0, -79.4913)
+
+[node name="Bookcase107" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, -42.1624, 0, -79.4984)
+
+[node name="Bookcase108" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.000645801, 0, -1, 0, 1, 0, 1, 0, -0.000645801, -53.1624, 0, -79.5055)
+
+[node name="Bookcase109" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, -20.1601, 0, -83.0365)
+
+[node name="Bookcase110" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, -31.1601, 0, -83.0436)
+
+[node name="Bookcase111" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, -42.1601, 0, -83.0507)
+
+[node name="Bookcase112" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.000645713, 0, 1, 0, 1, 0, -1, 0, 0.000645713, -53.1601, 0, -83.0578)
+
+[node name="Bookcase113" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.999962, 0, 0.00869165, 0, 1, 0, -0.00869165, 0, -0.999962, -13.0733, 0, -46.0316)
+
+[node name="Bookcase114" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.999962, 0, 0.00869165, 0, 1, 0, -0.00869165, 0, -0.999962, -12.9777, 0, -57.0312)
+
+[node name="Bookcase115" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.999962, 0, 0.00869165, 0, 1, 0, -0.00869165, 0, -0.999962, -12.8821, 0, -68.0308)
+
+[node name="Bookcase116" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-0.999962, 0, 0.00869165, 0, 1, 0, -0.00869165, 0, -0.999962, -12.7865, 0, -79.0304)
+
+[node name="Bookcase117" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.999962, 0, -0.00869156, 0, 1, 0, 0.00869156, 0, 0.999962, -9.5212, 0, -46.0008)
+
+[node name="Bookcase118" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.999962, 0, -0.00869156, 0, 1, 0, 0.00869156, 0, 0.999962, -9.42561, 0, -57.0004)
+
+[node name="Bookcase119" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.999962, 0, -0.00869156, 0, 1, 0, 0.00869156, 0, 0.999962, -9.32999, 0, -67.9999)
+
+[node name="Bookcase120" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.999962, 0, -0.00869156, 0, 1, 0, 0.00869156, 0, 0.999962, -9.23438, 0, -78.9995)
+
+[node name="Bookcase41" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.662, 0, 54.523)
+
+[node name="Bookcase42" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.662, 0, 65.523)
+
+[node name="Bookcase43" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.662, 0, 76.523)
+
+[node name="Bookcase44" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.662, 0, 87.523)
+
+[node name="Bookcase45" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.11, 0, 54.523)
+
+[node name="Bookcase46" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.11, 0, 65.523)
+
+[node name="Bookcase47" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.11, 0, 76.523)
+
+[node name="Bookcase48" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.11, 0, 87.523)
+
+[node name="Bookcase49" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.529, 0, 54.523)
+
+[node name="Bookcase50" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.529, 0, 65.523)
+
+[node name="Bookcase51" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.529, 0, 76.523)
+
+[node name="Bookcase52" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.529, 0, 87.523)
+
+[node name="Bookcase53" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96.9767, 0, 54.523)
+
+[node name="Bookcase54" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96.9767, 0, 65.523)
+
+[node name="Bookcase55" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96.9767, 0, 76.523)
+
+[node name="Bookcase56" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96.9767, 0, 87.523)
+
+[node name="Bookcase57" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5204, 0, 54.523)
+
+[node name="Bookcase58" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5204, 0, 65.523)
+
+[node name="Bookcase59" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5204, 0, 76.523)
+
+[node name="Bookcase60" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5204, 0, 87.523)
+
+[node name="Bookcase61" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 66.9681, 0, 54.523)
+
+[node name="Bookcase62" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 66.9681, 0, 65.523)
+
+[node name="Bookcase63" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 66.9681, 0, 76.523)
+
+[node name="Bookcase64" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 66.9681, 0, 87.523)
+
+[node name="Bookcase65" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.2784, 0, -9.24544)
+
+[node name="Bookcase66" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.2784, 0, 1.75456)
+
+[node name="Bookcase67" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.2784, 0, 12.7546)
+
+[node name="Bookcase68" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.2784, 0, 23.7546)
+
+[node name="Bookcase69" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 94.7262, 0, -9.24544)
+
+[node name="Bookcase70" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 94.7262, 0, 1.75456)
+
+[node name="Bookcase71" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 94.7262, 0, 12.7546)
+
+[node name="Bookcase72" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 94.7262, 0, 23.7546)
+
+[node name="Bookcase73" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.412, 0, -9.24544)
+
+[node name="Bookcase74" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.412, 0, 1.75456)
+
+[node name="Bookcase75" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.412, 0, 12.7546)
+
+[node name="Bookcase76" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.412, 0, 23.7546)
+
+[node name="Bookcase77" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.86, 0, -9.24544)
+
+[node name="Bookcase78" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.86, 0, 1.75456)
+
+[node name="Bookcase79" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.86, 0, 12.7546)
+
+[node name="Bookcase80" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 125.86, 0, 23.7546)
+
+[node name="Wall" parent="." instance=ExtResource("5_5tym4")]
+transform = Transform3D(5, 0, 0, 0, 100, 0, 0, 0, 1500, 145, -218.178, 5)
+
+[node name="Wall2" parent="." instance=ExtResource("5_5tym4")]
+transform = Transform3D(5, 0, 0, 0, 100, 0, 0, 0, 1500, -127.36, -218.178, 5)
+
+[node name="Wall3" parent="." instance=ExtResource("5_5tym4")]
+transform = Transform3D(-0.0201585, 0, -1499.99, 0, 100, 0, 4.99996, 0, -6.04754, 16.6844, -218.178, -134.078)
+
+[node name="Wall4" parent="." instance=ExtResource("5_5tym4")]
+transform = Transform3D(-0.0201585, 0, -1499.99, 0, 100, 0, 4.99996, 0, -6.04754, 17.5122, -218.178, 125.037)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e67bv")

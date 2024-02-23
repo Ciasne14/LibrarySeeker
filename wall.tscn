@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0kudf0cj8w78"]
+
+[ext_resource type="Texture2D" uid="uid://baon7pcmq22b" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_1ndpm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06u3r"]
+size = Vector3(1, 0.974365, 0.958008)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkqo6"]
+albedo_texture = ExtResource("1_1ndpm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qfklr"]
+
+[node name="Wall" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_06u3r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_rkqo6")
+mesh = SubResource("BoxMesh_qfklr")

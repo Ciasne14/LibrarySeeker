@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://s22t6e7wvmrr"]
+[gd_scene load_steps=5 format=3 uid="uid://s22t6e7wvmrr"]
+
+[ext_resource type="Texture2D" uid="uid://baon7pcmq22b" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_d6egu"]
+[ext_resource type="ArrayMesh" uid="uid://1aanvhf012og" path="res://Models/bookshelf.obj" id="2_xbfwr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqbty"]
+size = Vector3(1, 12.1697, 11.6162)
 
-[sub_resource type="BoxMesh" id="BoxMesh_fw1pe"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iiavq"]
+albedo_texture = ExtResource("1_d6egu")
 
 [node name="Bookcase" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 25, 0, 0, 0, 40, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30904, 0)
 shape = SubResource("BoxShape3D_gqbty")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_fw1pe")
+material_override = SubResource("StandardMaterial3D_iiavq")
+mesh = ExtResource("2_xbfwr")
