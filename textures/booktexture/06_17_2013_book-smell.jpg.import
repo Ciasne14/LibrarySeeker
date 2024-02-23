@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baon7pcmq22b"
-path.s3tc="res://.godot/imported/06_17_2013_book-smell.jpg-65622702704db54c60af9fecf139733c.s3tc.ctex"
+path.s3tc="res://.godot/imported/06_17_2013_book-smell.jpg-fa895bf2160d522687b101b0fda0907f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/booktexture/06_17_2013_book-smell.jpg"
-dest_files=["res://.godot/imported/06_17_2013_book-smell.jpg-65622702704db54c60af9fecf139733c.s3tc.ctex"]
+source_file="res://Textures/booktexture/06_17_2013_book-smell.jpg"
+dest_files=["res://.godot/imported/06_17_2013_book-smell.jpg-fa895bf2160d522687b101b0fda0907f.s3tc.ctex"]
 
 [params]
 

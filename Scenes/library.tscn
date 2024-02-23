@@ -1,23 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=8 format=3 uid="uid://bt60x0t52not"]
 
-[ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://textures/wood_floor_diff_4k.jpg" id="1_6vygr"]
 [ext_resource type="Script" path="res://Scenes/Scripts/library.gd" id="1_64ouq"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
-[ext_resource type="Texture2D" uid="uid://cye5t788tgqf6" path="res://textures/wood_floor_disp_4k.png" id="2_bx5tj"]
 [ext_resource type="PackedScene" uid="uid://s22t6e7wvmrr" path="res://bookcase.tscn" id="4_urprm"]
 [ext_resource type="PackedScene" uid="uid://d0kudf0cj8w78" path="res://wall.tscn" id="5_5tym4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3j74p"]
 size = Vector3(297.614, 0.630859, 299.057)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a18a"]
-albedo_texture = ExtResource("1_6vygr")
-normal_enabled = true
-normal_texture = ExtResource("2_bx5tj")
-uv1_scale = Vector3(60, 60, 60)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_h1luj"]
-material = SubResource("StandardMaterial3D_6a18a")
+[sub_resource type="PlaneMesh" id="PlaneMesh_eg6b8"]
 size = Vector2(300, 300)
 
 [sub_resource type="Environment" id="Environment_e67bv"]
@@ -39,7 +30,7 @@ transform = Transform3D(-0.720006, 0, 0.693967, 0, 1, 0, -0.693967, 0, -0.720006
 shape = SubResource("BoxShape3D_3j74p")
 
 [node name="Ground" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_h1luj")
+mesh = SubResource("PlaneMesh_eg6b8")
 skeleton = NodePath("../..")
 
 [node name="Bookcase" parent="." instance=ExtResource("4_urprm")]
