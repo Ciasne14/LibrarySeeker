@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0kudf0cj8w78"]
 
-[ext_resource type="Texture2D" uid="uid://baon7pcmq22b" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_1ndpm"]
+[ext_resource type="Texture2D" uid="uid://bj6i0ybrnxjal" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_1ndpm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_06u3r"]
 size = Vector3(1, 0.974365, 0.958008)

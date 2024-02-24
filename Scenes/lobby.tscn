@@ -59,7 +59,7 @@ text = "Local IP Address"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
-text = "127.0.0.1"
+text = "172.20.10."
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

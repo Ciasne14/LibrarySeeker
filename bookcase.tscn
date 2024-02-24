@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://s22t6e7wvmrr"]
 
-[ext_resource type="Texture2D" uid="uid://baon7pcmq22b" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_d6egu"]
-[ext_resource type="ArrayMesh" uid="uid://1aanvhf012og" path="res://Models/bookshelf.obj" id="2_xbfwr"]
+[ext_resource type="Texture2D" uid="uid://bj6i0ybrnxjal" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_d6egu"]
+[ext_resource type="ArrayMesh" uid="uid://barxrxb17k5ya" path="res://Models/bookshelf.obj" id="2_xbfwr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqbty"]
 size = Vector3(1, 12.1697, 11.6162)
