@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=8 format=3 uid="uid://bt60x0t52not"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/library.gd" id="1_64ouq"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
 [ext_resource type="PackedScene" uid="uid://s22t6e7wvmrr" path="res://bookcase.tscn" id="4_urprm"]
 [ext_resource type="PackedScene" uid="uid://d0kudf0cj8w78" path="res://wall.tscn" id="5_5tym4"]
-[ext_resource type="PackedScene" uid="uid://djh1u5s44xlxo" path="res://ending.tscn" id="5_f7jht"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3j74p"]
 size = Vector3(297.614, 0.630859, 299.057)
@@ -13,6 +12,17 @@ size = Vector3(297.614, 0.630859, 299.057)
 size = Vector2(300, 300)
 
 [sub_resource type="Environment" id="Environment_e67bv"]
+background_energy_multiplier = 0.0
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_bounce_feedback = 1.99
+sdfgi_cascades = 8
+sdfgi_max_distance = 3276.8
+fog_enabled = true
+fog_light_energy = 0.1
+fog_density = 0.05
+fog_sky_affect = 0.0
+fog_height = 1.0
 
 [node name="Library" type="Node3D"]
 script = ExtResource("1_64ouq")
@@ -31,6 +41,16 @@ transform = Transform3D(-0.720006, 0, 0.693967, 0, 1, 0, -0.693967, 0, -0.720006
 shape = SubResource("BoxShape3D_3j74p")
 
 [node name="Ground" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_eg6b8")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.999988, -0.00486935, 0, 0.00486935, -0.999988, 0, 0, 0, 1, 0, 50.6321, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_3j74p")
+
+[node name="Ground" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("PlaneMesh_eg6b8")
 skeleton = NodePath("../..")
 
@@ -411,6 +431,3 @@ transform = Transform3D(-0.0201585, 0, -1499.99, 0, 100, 0, 4.99996, 0, -6.04754
 
 [node name="Wall4" parent="Envio" instance=ExtResource("5_5tym4")]
 transform = Transform3D(-0.0201585, 0, -1499.99, 0, 100, 0, 4.99996, 0, -6.04754, 17.5122, -218.178, 125.037)
-
-[node name="Ending" parent="." instance=ExtResource("5_f7jht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.4928, 0, -16.1916)
