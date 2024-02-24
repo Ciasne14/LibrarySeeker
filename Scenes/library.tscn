@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=15 format=3 uid="uid://bt60x0t52not"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/library.gd" id="1_64ouq"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d0kudf0cj8w78" path="res://Scenes/wall.tscn" id="5_5tym4"]
 [ext_resource type="PackedScene" uid="uid://bp0v3soogynbo" path="res://Scenes/chandelier.tscn" id="6_1km3i"]
 [ext_resource type="PackedScene" uid="uid://cqgb640be7rtg" path="res://Scenes/exit_portal.tscn" id="6_1sj6s"]
+[ext_resource type="PackedScene" uid="uid://detaqawfp2vjm" path="res://Scenes/desk.tscn" id="8_jcqgw"]
+[ext_resource type="PackedScene" uid="uid://bhy7lrplxgdj" path="res://Scenes/armchair.tscn" id="9_nfkly"]
+[ext_resource type="PackedScene" uid="uid://bmohfmmw1oi52" path="res://Scenes/table_and_chairs.tscn" id="10_vu11d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3j74p"]
 size = Vector3(297.614, 0.630859, 299.057)
@@ -452,3 +455,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="ExitPortal" parent="." instance=ExtResource("6_1sj6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4829, 0.31543, 11.8853)
+
+[node name="Desk" parent="." instance=ExtResource("8_jcqgw")]
+transform = Transform3D(-1.36374, 0, 0.731473, 0, 1, 0, -1.46295, 0, -0.681871, 111.938, 0.808614, -63.4644)
+
+[node name="Armchair" parent="." instance=ExtResource("9_nfkly")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 116, 0, -66)
+
+[node name="Armchair2" parent="." instance=ExtResource("9_nfkly")]
+transform = Transform3D(-0.0237571, 0, -0.00778474, 0, 0.025, 0, 0.00778474, 0, -0.0237571, 108.607, 0, -62.1833)
+
+[node name="Armchair3" parent="." instance=ExtResource("9_nfkly")]
+transform = Transform3D(-0.0115201, 0, -0.0221875, 0, 0.025, 0, 0.0221875, 0, -0.0115201, 111.927, 0, -60.284)
+
+[node name="Table and chairs" parent="." instance=ExtResource("10_vu11d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.351, -4.76837e-07, -48.4692)
+
+[node name="Table and chairs2" parent="." instance=ExtResource("10_vu11d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.349, -4.76837e-07, -43.3094)
+
+[node name="Table and chairs3" parent="." instance=ExtResource("10_vu11d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.477, -4.76837e-07, -38.1758)

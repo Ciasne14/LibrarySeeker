@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://detaqawfp2vjm"]
+
+[ext_resource type="PackedScene" uid="uid://c2rowoqt83hg3" path="res://Models/Desk/scene.gltf" id="1_lqlis"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqrtv"]
+size = Vector3(2.07922, 1, 1)
+
+[node name="Desk" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_lqlis")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_Scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.621193, 0.682717, 0)
+omni_range = 0.830903
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00982666, 0, 0)
+shape = SubResource("BoxShape3D_uqrtv")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmohfmmw1oi52"]
+
+[ext_resource type="PackedScene" uid="uid://c6dt4f37qkhvc" path="res://Models/tableandchairs/scene.gltf" id="1_tfu8f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f1vgh"]
+size = Vector3(5.42996, 1.83569, 4.60852)
+
+[node name="Table and chairs" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2412, 1.57874, 1.80426)
+shape = SubResource("BoxShape3D_f1vgh")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_tfu8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 1)

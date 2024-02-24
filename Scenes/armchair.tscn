@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhy7lrplxgdj"]
+
+[ext_resource type="PackedScene" uid="uid://cr38bd2825k34" path="res://Models/armchair2/scene.gltf" id="1_2061n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cpe30"]
+size = Vector3(77, 72, 78)
+
+[node name="Armchair" type="Node3D"]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_2061n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 38, 17.5)
+shape = SubResource("BoxShape3D_cpe30")

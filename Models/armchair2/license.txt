@@ -1,0 +1,11 @@
+Model Information:
+* title:	Armchair
+* source:	https://sketchfab.com/3d-models/armchair-f293a06108ad46f88a71be83e1e154ec
+* author:	Neo_minigan (https://sketchfab.com/neominigan)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Armchair" (https://sketchfab.com/3d-models/armchair-f293a06108ad46f88a71be83e1e154ec) by Neo_minigan (https://sketchfab.com/neominigan) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
