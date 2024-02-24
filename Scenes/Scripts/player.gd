@@ -21,6 +21,7 @@ func _ready():
 		#$PlayerArea.area_shape_entered.connect(self._on_area_3d_area_enxtered)
 	else:
 		camera.current = false
+		$Capsule.show()
 		$monsterX.hide()
 		$CameraPivot/SpotLight3D.hide()
 	audio_player = $Heels

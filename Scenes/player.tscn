@@ -27,6 +27,9 @@ properties/3/replication_mode = 1
 properties/4/path = NodePath("monsterX:visible")
 properties/4/spawn = true
 properties/4/replication_mode = 1
+properties/5/path = NodePath("Capsule:visible")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95516, 0)
@@ -40,7 +43,7 @@ shape = SubResource("CapsuleShape3D_broob")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
 shape = SubResource("CapsuleShape3D_broob")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Capsule" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("CapsuleMesh_gkg8p")
 
@@ -81,7 +84,7 @@ autoplay = true
 [node name="StepTimer" type="Timer" parent="."]
 
 [node name="monsterX" parent="." instance=ExtResource("5_kpr6n")]
-transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0.198864, -0.790694, 0.21169)
+transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0.199, -1.84848, 0.212)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_bykt8")
