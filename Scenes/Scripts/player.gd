@@ -1,16 +1,24 @@
 extends CharacterBody3D
 
-const MOVE_SPEED = 15
+var MOVE_SPEED = 15
 const MOUSE_SENSITIVITY = 1000
 
 @onready var camera: Camera3D = %Camera
+@export var worldSettings: WorldEnvironment
+
+@onready var worldASD: WorldEnvironment = get_node("/root/Library/WorldEnvironment")
 
 func _ready():
 	if is_multiplayer_authority():
 		camera.current = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		MOVE_SPEED = 30
+		worldASD.environment.background_energy_multiplier = 0
 	else:
 		camera.current = false
+		$CameraPivot/SpotLight3D.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+	
 
 func _input(event):
 	if is_multiplayer_authority() == false:

@@ -406,4 +406,5 @@ transform = Transform3D(-0.0201585, 0, -1499.99, 0, 100, 0, 4.99996, 0, -6.04754
 transform = Transform3D(-0.0201585, 0, -1499.99, 0, 100, 0, 4.99996, 0, -6.04754, 17.5122, -218.178, 125.037)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+unique_name_in_owner = true
 environment = SubResource("Environment_e67bv")
