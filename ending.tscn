@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://djh1u5s44xlxo"]
+
+[ext_resource type="Texture2D" uid="uid://bj6i0ybrnxjal" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_adpls"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wfwe"]
+albedo_texture = ExtResource("1_adpls")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ljmsw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3d1r"]
+size = Vector3(1.625, 0.824463, 1.54858)
+
+[node name="Ending" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_3wfwe")
+mesh = SubResource("BoxMesh_ljmsw")
+
+[node name="Ending" type="Area3D" parent="StaticBody3D" groups=["Player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Ending"]
+shape = SubResource("BoxShape3D_t3d1r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

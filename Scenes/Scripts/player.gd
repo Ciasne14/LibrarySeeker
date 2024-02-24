@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 var MOVE_SPEED = 15
+var DASH_SPEED = 0
+var DASH_AVAILABLE = true
 const MOUSE_SENSITIVITY = 1000
 
 @onready var camera: Camera3D = %Camera
@@ -45,9 +47,25 @@ func _process(delta):
 		direction -= $CameraPivot.global_transform.basis.x
 	if Input.is_action_pressed("move_right"):
 		direction += $CameraPivot.global_transform.basis.x
+	if Input.is_action_pressed("dash") && is_multiplayer_authority() && DASH_AVAILABLE:
+		DASH_SPEED = 1000
+		DASH_AVAILABLE=false
+		$DashTimer.start()
 
 	direction.y = 0
 	direction = direction.normalized()
 
-	velocity = direction * MOVE_SPEED
+	velocity = direction * (MOVE_SPEED+DASH_SPEED)
+	DASH_SPEED = 0
 	move_and_slide()
+
+
+func _on_dash_timer_timeout():
+	DASH_AVAILABLE=true
+	
+
+func _on_area_3d_area_entered(area):
+	if(area.name == "PlayerArea"):
+		print ("GameOver")
+	if(area.name == "Ending"):
+		print("GG Easy")

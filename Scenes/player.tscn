@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_s3y5f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
+radius = 0.897707
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkg8p"]
 
@@ -27,6 +28,11 @@ script = ExtResource("1_s3y5f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_broob")
 
+[node name="PlayerArea" type="Area3D" parent="." groups=["Player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
+shape = SubResource("CapsuleShape3D_broob")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_gkg8p")
 
@@ -45,3 +51,9 @@ spot_angle = 30.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_wqlot")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

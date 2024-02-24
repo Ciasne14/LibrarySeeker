@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://barxrxb17k5ya" path="res://Models/bookshelf.obj" id="2_xbfwr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqbty"]
-size = Vector3(1, 12.1697, 11.6162)
+size = Vector3(4.34741, 12.1697, 11.6162)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iiavq"]
 albedo_texture = ExtResource("1_d6egu")
@@ -14,7 +14,7 @@ albedo_texture = ExtResource("1_d6egu")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" groups=["Envio"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30904, 0)
 shape = SubResource("BoxShape3D_gqbty")
 
