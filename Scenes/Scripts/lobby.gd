@@ -21,7 +21,7 @@ func _player_connected(_id):
 	# Someone connected, start the game!
 	var library = load("res://Scenes/library.tscn").instantiate()
 	# Connect deferred so we can safely erase it from the callback.
-	library.game_finished.connect(self._end_game, CONNECT_DEFERRED)
+	library.game_finished.connect(self.end_game, CONNECT_DEFERRED)
 
 	get_tree().get_root().add_child(library)
 	hide()
@@ -29,9 +29,9 @@ func _player_connected(_id):
 
 func _player_disconnected(_id):
 	if multiplayer.is_server():
-		_end_game("Client disconnected")
+		end_game("Client disconnected")
 	else:
-		_end_game("Server disconnected")
+		end_game("Server disconnected")
 
 # Callback from SceneTree, only for clients (not server).
 func _connected_ok():
@@ -48,16 +48,19 @@ func _connected_fail():
 
 
 func _server_disconnected():
-	_end_game("Server disconnected.")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	end_game("Server disconnected.")
 
 ##### Game creation functions ######
 
-func _end_game(with_error = ""):
+func end_game(with_error = ""):
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if has_node("/root/Library"):
 		# Erase immediately, otherwise network might show
 		# errors (this is why we connected deferred above).
 		get_node(^"/root/Library").free()
-		show()
+	
+	show()
 
 	multiplayer.set_multiplayer_peer(null) # Remove peer.
 	host_btn.set_disabled(false)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bw4x7u4x3v035"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_s3y5f"]
-[ext_resource type="AudioStream" uid="uid://dd04i1lq41yii" path="res://Sounds/heelsSound.mp3" id="2_d4qjm"]
-[ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="3_linwd"]
-[ext_resource type="AudioStream" uid="uid://bkn7ki2vfrnju" path="res://Sounds/scream.mp3" id="3_s4iuj"]
+[ext_resource type="AudioStream" uid="uid://bexis2v0yxmvn" path="res://Sounds/heelsSound.mp3" id="2_d4qjm"]
+[ext_resource type="AudioStream" uid="uid://dop5cfqjor24a" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="3_linwd"]
+[ext_resource type="AudioStream" uid="uid://yvj0y4mi3pn6" path="res://Sounds/scream.mp3" id="3_s4iuj"]
 [ext_resource type="PackedScene" uid="uid://cskl2rusy1uni" path="res://Scenes/monster_x.tscn" id="5_kpr6n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
@@ -11,19 +11,22 @@ radius = 0.897707
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkg8p"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wqlot"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bykt8"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
-properties/1/path = NodePath("CameraPivot:rotation")
+properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
-properties/2/path = NodePath(".:rotation")
+properties/2/path = NodePath(".:scale")
 properties/2/spawn = true
 properties/2/replication_mode = 1
 properties/3/path = NodePath("CameraPivot/SpotLight3D:visible")
 properties/3/spawn = true
 properties/3/replication_mode = 1
+properties/4/path = NodePath("monsterX:visible")
+properties/4/spawn = true
+properties/4/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95516, 0)
@@ -60,9 +63,6 @@ shadow_blur = 3.828
 spot_range = 57.166
 spot_angle = 30.0
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_wqlot")
-
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 15.0
 
@@ -71,6 +71,7 @@ stream = ExtResource("2_d4qjm")
 
 [node name="Scream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_s4iuj")
+volume_db = -4.324
 
 [node name="BackGroundMusic" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_linwd")
@@ -81,6 +82,10 @@ autoplay = true
 
 [node name="monsterX" parent="." instance=ExtResource("5_kpr6n")]
 transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0.198864, -0.790694, 0.21169)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_bykt8")
+visibility_update_mode = 1
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
