@@ -4,7 +4,7 @@ var MOVE_SPEED = 15
 var DASH_SPEED = 0
 var DASH_AVAILABLE = true
 const MOUSE_SENSITIVITY = 1000
-
+var audio_player
 @onready var camera: Camera3D = %Camera
 @export var worldSettings: WorldEnvironment
 
@@ -20,6 +20,7 @@ func _ready():
 		$CameraPivot/SpotLight3D.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print(IP.resolve_hostname(str(OS.get_environment("Laptop-Lenovo")),1))
+	audio_player = $Heels
 		
 	
 
@@ -57,6 +58,12 @@ func _process(delta):
 	direction = direction.normalized()
 
 	velocity = direction * (MOVE_SPEED+DASH_SPEED)
+	if velocity.length() > 0:
+		if !audio_player.playing:
+			audio_player.play()
+	else:
+		if audio_player.playing:
+			audio_player.stop()
 	DASH_SPEED = 0
 	move_and_slide()
 

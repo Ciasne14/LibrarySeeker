@@ -438,3 +438,12 @@ transform = Transform3D(-0.0201585, 0, -1499.99, 0, 100, 0, 4.99996, 0, -6.04754
 
 [node name="ExitPortal" parent="." instance=ExtResource("6_1sj6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04612, 0)
+
+[node name="Bookcase" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.87723, 0.31543, 0.21994)
+
+[node name="Bookcase2" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.48955, 0.31543, 0.00881481)
+
+[node name="Bookcase3" parent="." instance=ExtResource("4_urprm")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.07571, 0.31543, 5.81008)
