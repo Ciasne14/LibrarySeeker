@@ -1,17 +1,18 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkmpcui7mdots"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_pa2mp"]
-[ext_resource type="AudioStream" uid="uid://dd04i1lq41yii" path="res://Sounds/heelsSound.mp3" id="2_c60i0"]
-[ext_resource type="AudioStream" uid="uid://bkn7ki2vfrnju" path="res://Sounds/scream.mp3" id="3_254tt"]
-[ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
+[ext_resource type="AudioStream" uid="uid://bexis2v0yxmvn" path="res://Sounds/heelsSound.mp3" id="2_c60i0"]
+[ext_resource type="AudioStream" uid="uid://yvj0y4mi3pn6" path="res://Sounds/scream.mp3" id="3_254tt"]
+[ext_resource type="AudioStream" uid="uid://dop5cfqjor24a" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
 [ext_resource type="PackedScene" uid="uid://cskl2rusy1uni" path="res://Scenes/monster_x.tscn" id="5_6k1lf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
-radius = 0.897707
+radius = 2.33346
+height = 4.82544
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkg8p"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bykt8"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1kr6n"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
@@ -21,26 +22,22 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath(".:scale")
 properties/2/spawn = true
 properties/2/replication_mode = 1
-properties/3/path = NodePath("CameraPivot/SpotLight3D:visible")
+properties/3/path = NodePath("CameraPivot:rotation")
 properties/3/spawn = true
 properties/3/replication_mode = 1
-properties/4/path = NodePath("monsterX:visible")
-properties/4/spawn = true
-properties/4/replication_mode = 1
-properties/5/path = NodePath("Capsule:visible")
-properties/5/spawn = true
-properties/5/replication_mode = 1
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Monster" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95516, 0)
 script = ExtResource("1_pa2mp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192673, 0, 0.545865)
 shape = SubResource("CapsuleShape3D_broob")
 
 [node name="PlayerArea" type="Area3D" parent="." groups=["Player"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0666375, 0, 0.461411)
 shape = SubResource("CapsuleShape3D_broob")
 
 [node name="Capsule" type="MeshInstance3D" parent="."]
@@ -48,14 +45,14 @@ visible = false
 mesh = SubResource("CapsuleMesh_gkg8p")
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32145, 0.0356075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.131532, -1.5376)
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225881, 0.26737)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.989331, 0.145686, 0, -0.145686, 0.989331, 0, -0.611321, -0.722194)
+transform = Transform3D(1, 0, 0, 0, 0.989331, 0.145686, 0, -0.145686, 0.989331, 0, -0.554731, 0.0710931)
 light_color = Color(1, 0.988235, 0.533333, 1)
 light_energy = 10.0
 light_indirect_energy = 0.0
@@ -87,8 +84,7 @@ autoplay = true
 transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0.199, -1.84848, 0.212)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_bykt8")
-visibility_update_mode = 1
+replication_config = SubResource("SceneReplicationConfig_1kr6n")
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

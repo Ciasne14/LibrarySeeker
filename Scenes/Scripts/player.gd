@@ -86,15 +86,15 @@ func _on_dash_timer_timeout():
 
 func _on_area_3d_area_entered(area):
 	print(area.name)
-	#if area.name == "Player2":
-		#scream_sound.playing = true
-		#await scream_sound.finished
-		#var end_game = load("res://Scenes/end_game.tscn").instantiate()
-		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		#get_tree().get_root().add_child(end_game)
-		#get_node("/root/Library").queue_free()
-	#if area.name == "Ending":
-		#print ("GG Easy")
+	if area.name == "PlayerArea":
+		scream_sound.playing = true
+		await scream_sound.finished
+		var end_game = load("res://Scenes/end_game.tscn").instantiate()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().get_root().add_child(end_game)
+		get_node("/root/Library").queue_free()
+	if area.name == "Ending":
+		print ("GG Easy")
 
 
 func _on_step_timer_timeout():

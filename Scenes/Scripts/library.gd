@@ -2,8 +2,8 @@ extends Node3D
 
 signal game_finished()
 
-@onready var player2 = %Player2
-@onready var player = %Player
+@onready var player2 = %Monster
+@onready var player = %Capsule
 
 var swap = false
 

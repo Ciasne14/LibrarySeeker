@@ -69,6 +69,7 @@ func end_game(with_error = ""):
 	status_label.set_text(with_error)
 
 func _on_host_pressed():
+	preload("res://Scenes/monster_x.tscn")
 	peer = ENetMultiplayerPeer.new()
 	var err = peer.create_server(DEFAULT_PORT, 1) # Maximum of 1 peer, since it's a 2-player game.
 	if err != OK:
