@@ -1,10 +1,10 @@
 [gd_scene load_steps=24 format=3 uid="uid://cqgb640be7rtg"]
 
-[ext_resource type="Texture2D" uid="uid://d5sjeo0m5o60" path="res://Spark1.jpg" id="1_doejo"]
-[ext_resource type="Texture2D" uid="uid://bc63tunkod6pp" path="res://Spark2.jpg" id="2_pc7x2"]
-[ext_resource type="Texture2D" uid="uid://b2dlxpkqq6tcp" path="res://IceCrystal1.jpg" id="3_tivmt"]
-[ext_resource type="Texture2D" uid="uid://cxfc5car8noj7" path="res://IceCrystal2.jpg" id="4_jc0g4"]
-[ext_resource type="AudioStream" uid="uid://cakq2g3o267dy" path="res://Portal Sound Effect (SFX).mp3" id="5_hjte4"]
+[ext_resource type="Texture2D" uid="uid://d5sjeo0m5o60" path="res://Textures/Spark1.jpg" id="1_doejo"]
+[ext_resource type="Texture2D" uid="uid://bc63tunkod6pp" path="res://Textures/Spark2.jpg" id="2_pc7x2"]
+[ext_resource type="Texture2D" uid="uid://b2dlxpkqq6tcp" path="res://Textures/IceCrystal1.jpg" id="3_tivmt"]
+[ext_resource type="Texture2D" uid="uid://cxfc5car8noj7" path="res://Textures/IceCrystal2.jpg" id="4_jc0g4"]
+[ext_resource type="AudioStream" uid="uid://cakq2g3o267dy" path="res://Sounds/Portal Sound Effect (SFX).mp3" id="5_hjte4"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1e0q5"]
 particle_flag_disable_z = true
@@ -190,5 +190,4 @@ shape = SubResource("CylinderShape3D_43w38")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_hjte4")
-stream_paused = true
 max_distance = 10.0

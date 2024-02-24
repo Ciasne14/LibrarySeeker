@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://s22t6e7wvmrr"]
+[gd_scene load_steps=6 format=3 uid="uid://s22t6e7wvmrr"]
 
 [ext_resource type="Texture2D" uid="uid://bj6i0ybrnxjal" path="res://Textures/booktexture/06_17_2013_book-smell.jpg" id="1_d6egu"]
+[ext_resource type="PackedScene" uid="uid://fp1emp8b0af0" path="res://Models/bookcase/scene.gltf" id="1_op5er"]
 [ext_resource type="ArrayMesh" uid="uid://barxrxb17k5ya" path="res://Models/bookshelf.obj" id="2_xbfwr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqbty"]
@@ -18,6 +19,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" groups=["Envio"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30904, 0)
 shape = SubResource("BoxShape3D_gqbty")
+
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_op5er")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 material_override = SubResource("StandardMaterial3D_iiavq")
