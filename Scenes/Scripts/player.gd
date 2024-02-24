@@ -6,15 +6,17 @@ var DASH_AVAILABLE = true
 const MOUSE_SENSITIVITY = 1000
 var audio_player
 @onready var camera: Camera3D = %Camera
-@export var worldSettings: WorldEnvironment
 
-@onready var worldASD: WorldEnvironment = get_node("/root/Library/WorldEnvironment")
+@onready var worldEnvironment: WorldEnvironment = get_node("/root/Library/WorldEnvironment")
+@onready var stepTimer: Timer = $StepTimer
+
+var stepStart = false
 
 func _ready():
 	if is_multiplayer_authority():
 		camera.current = true
 		MOVE_SPEED = 30
-		worldASD.environment.background_energy_multiplier = 0
+		worldEnvironment.environment.background_energy_multiplier = 0
 	else:
 		camera.current = false
 		$CameraPivot/SpotLight3D.hide()
@@ -40,19 +42,29 @@ func _process(delta):
 		return
 	
 	var direction = Vector3()
+	var isBtnPressed = false
 
 	if Input.is_action_pressed("move_forward"):
+		isBtnPressed = true
 		direction -= $CameraPivot.global_transform.basis.z
 	if Input.is_action_pressed("move_backward"):
+		isBtnPressed = true
 		direction += $CameraPivot.global_transform.basis.z
 	if Input.is_action_pressed("move_left"):
+		isBtnPressed = true
 		direction -= $CameraPivot.global_transform.basis.x
 	if Input.is_action_pressed("move_right"):
+		isBtnPressed = true
 		direction += $CameraPivot.global_transform.basis.x
 	if Input.is_action_pressed("dash") && !is_multiplayer_authority() && DASH_AVAILABLE:
+		isBtnPressed = true
 		DASH_SPEED = 1000
 		DASH_AVAILABLE=false
 		$DashTimer.start()
+		
+	if !is_multiplayer_authority() && isBtnPressed && stepStart == false:
+		stepStart = true 
+		stepTimer.start(.1)
 
 	direction.y = 0
 	direction = direction.normalized()
@@ -77,3 +89,13 @@ func _on_area_3d_area_entered(area):
 		print ("GameOver")
 	if(area.name == "Ending"):
 		print ("GG Easy")
+
+
+func _on_step_timer_timeout():
+	stepStart = false
+	stepTimer.stop()
+	var step = load("res://Scenes/step.tscn").instantiate()
+	step.position = position
+	step.position.y = 0.2
+	step.rotation = rotation
+	get_node("/root/Library").add_child(step)

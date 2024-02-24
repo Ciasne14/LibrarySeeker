@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://du3edylope1xx"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/step.gd" id="1_x7bwu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5bi8"]
+albedo_color = Color(1, 0.0156863, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5pix1"]
+material = SubResource("StandardMaterial3D_d5bi8")
+size = Vector3(0.15, 0.02, 0.1)
+
+[node name="Step" type="Node3D"]
+script = ExtResource("1_x7bwu")
+
+[node name="One" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 2.08165e-12, 0.08)
+mesh = SubResource("BoxMesh_5pix1")
+
+[node name="Two" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 2.08165e-12, -0.08)
+mesh = SubResource("BoxMesh_5pix1")
+
+[node name="Destroy" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Destroy" to="." method="_on_destroy_timeout"]
