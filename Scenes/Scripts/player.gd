@@ -69,4 +69,4 @@ func _on_area_3d_area_entered(area):
 	if(area.name == "PlayerArea"):
 		print ("GameOver")
 	if(area.name == "Ending"):
-		print("GG Easy")
+		print ("GG Easy")

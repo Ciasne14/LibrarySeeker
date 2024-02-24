@@ -44,10 +44,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32145, 0.0356075)
 unique_name_in_owner = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.26978, 0)
-light_energy = 8.434
+transform = Transform3D(1, 0, 0, 0, 0.989331, 0.145686, 0, -0.145686, 0.989331, 0, -0.611321, -0.722194)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
-spot_range = 70.284
+shadow_bias = 0.57
+shadow_blur = 3.828
+spot_range = 57.166
 spot_angle = 30.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

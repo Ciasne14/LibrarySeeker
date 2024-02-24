@@ -21,7 +21,7 @@ signal game_finished()
 	#print("Is server: ", multiplayer.is_server())
 	#print("Me: ", multiplayer.get_unique_id())
 	#print("Other Player: ", multiplayer.get_peers()[0])
-
+#
 #func _physics_process(delta):
 	#if Input.is_action_pressed("ui_cancel"):
 		#game_finished.emit()

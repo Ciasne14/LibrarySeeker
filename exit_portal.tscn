@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqgb640be7rtg"]
+[gd_scene load_steps=23 format=3 uid="uid://cqgb640be7rtg"]
 
 [ext_resource type="Texture2D" uid="uid://d5sjeo0m5o60" path="res://Spark1.jpg" id="1_doejo"]
 [ext_resource type="Texture2D" uid="uid://bc63tunkod6pp" path="res://Spark2.jpg" id="2_pc7x2"]
@@ -146,6 +146,8 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_caysx")
 size = Vector2(0.5, 0.5)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_43w38"]
+
 [node name="ExitPortal" type="Node3D"]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
@@ -178,4 +180,9 @@ light_volumetric_fog_energy = 8.467
 light_size = 0.619
 distance_fade_enabled = true
 distance_fade_begin = 619.23
-omni_range = 20.404
+
+[node name="Ending" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ending"]
+transform = Transform3D(2, 0, 0, 0, -1.09278e-08, -2, 0, 0.25, -8.74228e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_43w38")
