@@ -47,7 +47,7 @@ func _process(delta):
 		direction -= $CameraPivot.global_transform.basis.x
 	if Input.is_action_pressed("move_right"):
 		direction += $CameraPivot.global_transform.basis.x
-	if Input.is_action_pressed("dash") && is_multiplayer_authority() && DASH_AVAILABLE:
+	if Input.is_action_pressed("dash") && !is_multiplayer_authority() && DASH_AVAILABLE:
 		DASH_SPEED = 1000
 		DASH_AVAILABLE=false
 		$DashTimer.start()
