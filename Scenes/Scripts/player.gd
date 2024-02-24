@@ -17,12 +17,13 @@ func _ready():
 		camera.current = true
 		MOVE_SPEED = 30
 		worldEnvironment.environment.background_energy_multiplier = 0
+		$monsterX.hide()		
+		audio_player = $Heels
 	else:
 		camera.current = false
 		$CameraPivot/SpotLight3D.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print(IP.resolve_hostname(str(OS.get_environment("Laptop-Lenovo")),1))
-	audio_player = $Heels
 		
 	
 

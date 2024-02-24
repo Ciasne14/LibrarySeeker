@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw4x7u4x3v035"]
+[gd_scene load_steps=9 format=3 uid="uid://bw4x7u4x3v035"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_s3y5f"]
 [ext_resource type="AudioStream" uid="uid://dd04i1lq41yii" path="res://Sounds/heelsSound.mp3" id="2_d4qjm"]
 [ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="3_linwd"]
 [ext_resource type="AudioStream" uid="uid://bkn7ki2vfrnju" path="res://Sounds/scream.mp3" id="3_s4iuj"]
+[ext_resource type="PackedScene" uid="uid://cskl2rusy1uni" path="res://Scenes/monster_x.tscn" id="5_kpr6n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
 radius = 0.897707
@@ -37,6 +38,7 @@ shape = SubResource("CapsuleShape3D_broob")
 shape = SubResource("CapsuleShape3D_broob")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_gkg8p")
 
 [node name="CameraPivot" type="Node3D" parent="."]
@@ -44,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32145, 0.0356075)
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.5)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.989331, 0.145686, 0, -0.145686, 0.989331, 0, -0.611321, -0.722194)
@@ -75,6 +78,9 @@ volume_db = -40.0
 autoplay = true
 
 [node name="StepTimer" type="Timer" parent="."]
+
+[node name="monsterX" parent="." instance=ExtResource("5_kpr6n")]
+transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0.198864, -0.790694, 0.21169)
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

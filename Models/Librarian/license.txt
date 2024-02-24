@@ -1,0 +1,11 @@
+Model Information:
+* title:	WoP - Octopus Pirate King (High Poly)
+* source:	https://sketchfab.com/3d-models/wop-octopus-pirate-king-high-poly-06034af18d0b4f5fa0d5efdb475b5bb7
+* author:	doctorA (https://sketchfab.com/doctorA)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "WoP - Octopus Pirate King (High Poly)" (https://sketchfab.com/3d-models/wop-octopus-pirate-king-high-poly-06034af18d0b4f5fa0d5efdb475b5bb7) by doctorA (https://sketchfab.com/doctorA) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
