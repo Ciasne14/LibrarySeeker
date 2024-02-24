@@ -12,7 +12,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92643, 0, 0.0599848)
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00775445, 0.241876, 0.00384129)
 light_color = Color(0.964706, 0.968627, 0.862745, 1)
-light_energy = 4.048
+light_energy = 2.0
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 10.9986
+distance_fade_enabled = true
+distance_fade_length = 3.0

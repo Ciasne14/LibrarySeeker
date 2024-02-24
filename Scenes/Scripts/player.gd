@@ -87,6 +87,7 @@ func _on_dash_timer_timeout():
 func _on_area_3d_area_entered(area):
 	if(area.name == "PlayerArea"):
 		print ("GameOver")
+		$Scream.playing = true
 	if(area.name == "Ending"):
 		print ("GG Easy")
 
