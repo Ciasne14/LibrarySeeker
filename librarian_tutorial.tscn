@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh7pni8mso5qf"]
+[gd_scene load_steps=3 format=3 uid="uid://dh7pni8mso5qf"]
 
-[ext_resource type="Texture2D" uid="uid://dju0d4s6kfgj0" path="res://playerTutorial.png" id="1_7liuv"]
+[ext_resource type="Texture2D" uid="uid://wmt0ocjof63h" path="res://playerTutorial.png" id="1_7liuv"]
+[ext_resource type="Script" path="res://Scenes/Scripts/tutorial.gd" id="2_8slje"]
 
-[node name="PlayerTutorial" type="TextureRect"]
+[node name="Tutorial" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,6 +14,7 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_7liuv")
+script = ExtResource("2_8slje")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -45,7 +47,8 @@ Use portal before time runs out.
 
 "
 
-[node name="Button" type="Button" parent="Label"]
+[node name="Start" type="Button" parent="Label"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

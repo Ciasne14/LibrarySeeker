@@ -9,6 +9,8 @@ extends Node3D
 const DEFAULT_PORT = 8910
 var peer: ENetMultiplayerPeer
 
+var swapPlayers = false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		# Connect all the callbacks related to networking.
@@ -25,18 +27,34 @@ func _ready():
 	join_btn.mouse_entered.connect(self._on_mouse_entered)
 	exit_btn.mouse_entered.connect(self._on_mouse_entered)	
 	
-	
 
 # Callback from SceneTree.
 func _player_connected(_id):
-	# Someone connected, start the game!
-	var library = load("res://Scenes/library.tscn").instantiate()
-	# Connect deferred so we can safely erase it from the callback.
-	library.game_finished.connect(self.end_game, CONNECT_DEFERRED)
-
-	get_tree().get_root().add_child(library)
+	load_tutorials()
 	hide()
 	%CanvasLayer.hide()
+
+func swap():
+	swapPlayers = !swapPlayers
+
+func load_tutorials():
+	if (multiplayer.is_server() && swapPlayers == false) || (swapPlayers && multiplayer.is_server() == false):
+		load_monster_tutorial()
+	else:
+		load_capsule_tutorial()
+	
+func load_monster_tutorial():
+	var tutorial = load("res://monster_tutorial.tscn").instantiate()
+	get_tree().get_root().add_child(tutorial)
+	
+func load_capsule_tutorial():
+	var tutorial = load("res://librarian_tutorial.tscn").instantiate()
+	get_tree().get_root().add_child(tutorial)
+
+func load_library():
+	var library = load("res://Scenes/library.tscn").instantiate()
+	library.swap = swapPlayers
+	get_tree().get_root().add_child(library)
 
 
 func _player_disconnected(_id):

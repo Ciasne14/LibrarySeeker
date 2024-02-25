@@ -103,9 +103,10 @@ func fire_btn(value):
 	load_library(value == "swap")
 
 func load_library(swap: bool = true):
-	var library = load("res://Scenes/library.tscn").instantiate()
-	library.swap = swap
-	get_tree().get_root().add_child(library)
+	var lobby = get_node("/root/Lobby")
+	if swap:
+		lobby.swap()
+	lobby.load_tutorials()
 	delete_it_kurwa()
 
 func delete_it_kurwa():

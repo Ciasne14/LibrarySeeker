@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7b7w7higgxba"]
 
-[ext_resource type="PackedScene" uid="uid://c2rowoqt83hg3" path="res://Models/Desk/scene.gltf" id="1_0uj8y"]
-[ext_resource type="PackedScene" uid="uid://fp1emp8b0af0" path="res://Models/bookcase/scene.gltf" id="2_g7wie"]
-[ext_resource type="PackedScene" uid="uid://cr38bd2825k34" path="res://Models/armchair2/scene.gltf" id="3_6gnug"]
-[ext_resource type="PackedScene" uid="uid://ni1outhfm1al" path="res://Models/chandelier/scene.gltf" id="4_gclkx"]
+[ext_resource type="PackedScene" uid="uid://bvn5ua2o3esug" path="res://Models/Desk/scene.gltf" id="1_0uj8y"]
+[ext_resource type="PackedScene" uid="uid://dj4ae6ibtbaea" path="res://Models/bookcase/scene.gltf" id="2_g7wie"]
+[ext_resource type="PackedScene" uid="uid://db2lpcejyhdvr" path="res://Models/armchair2/scene.gltf" id="3_6gnug"]
+[ext_resource type="PackedScene" uid="uid://c41m77l56suad" path="res://Models/chandelier/scene.gltf" id="4_gclkx"]
 [ext_resource type="PackedScene" uid="uid://cqgb640be7rtg" path="res://Scenes/exit_portal.tscn" id="5_6iogr"]
 [ext_resource type="Script" path="res://Scenes/Host.gd" id="6_dgdyo"]
-[ext_resource type="AudioStream" uid="uid://bj2lin0808tem" path="res://Sounds/click.mp3" id="7_lnjki"]
+[ext_resource type="AudioStream" uid="uid://bhg6ie8gurxu7" path="res://Sounds/click.mp3" id="7_lnjki"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8ul5f"]
 size = Vector2(300, 300)

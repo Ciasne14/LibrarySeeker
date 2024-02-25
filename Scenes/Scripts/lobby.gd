@@ -7,6 +7,7 @@ extends Control
 
 const DEFAULT_PORT = 8910
 var peer: ENetMultiplayerPeer
+var swapPlayers = false
 
 func _ready():
 		# Connect all the callbacks related to networking.
@@ -18,13 +19,30 @@ func _ready():
 
 # Callback from SceneTree.
 func _player_connected(_id):
-	# Someone connected, start the game!
-	var library = load("res://Scenes/library.tscn").instantiate()
-	# Connect deferred so we can safely erase it from the callback.
-	library.game_finished.connect(self.end_game, CONNECT_DEFERRED)
-
-	get_tree().get_root().add_child(library)
+	load_tutorials()
 	hide()
+
+func swap():
+	swapPlayers = !swapPlayers
+
+func load_tutorials():
+	if multiplayer.is_server() && swapPlayers == false:
+		load_monster_tutorial()
+	else:
+		load_capsule_tutorial()
+	
+func load_monster_tutorial():
+	var tutorial = load("res://monster_tutorial.tscn").instantiate()
+	get_tree().get_root().add_child(tutorial)
+	
+func load_capsule_tutorial():
+	var tutorial = load("res://librarian_tutorial.tscn").instantiate()
+	get_tree().get_root().add_child(tutorial)
+
+func load_library():
+	var library = load("res://Scenes/library.tscn").instantiate()
+	library.swap = swapPlayers
+	get_tree().get_root().add_child(library)
 
 
 func _player_disconnected(_id):

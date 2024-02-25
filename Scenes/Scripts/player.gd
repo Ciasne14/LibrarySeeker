@@ -13,7 +13,8 @@ var audio_player
 var stepStart = false
 
 func setup():
-	audio_player=$Heels
+	if name == "Capsule":
+		audio_player=$Heels
 	if is_multiplayer_authority():
 		camera.current = true
 		#$PlayerArea.area_shape_entered.connect(self._on_area_3d_area_enxtered)
@@ -99,19 +100,16 @@ func _on_area_3d_area_entered(area):
 
 @rpc("any_peer")
 func end_game(colideWith):
+	if is_multiplayer_authority() == false:
+		return
 	var win = false
 	var monster = name == "Monster"
 	var whoWin
-	if name == "Monster" && colideWith == "Capsule":
-		win = true
-	if name == "Capsule" && colideWith == "Monster":
-		win = false
-	if name == "Capsule" && colideWith == "Ending":
-		win = true
 	if colideWith == "Ending":
 		whoWin = "Capsule"
 	if colideWith == "Monster" || colideWith == "Capsule":
 		whoWin = "Monster"
+	win = name == whoWin
 	var end_game = load("res://Scenes/end_game.tscn").instantiate()
 	end_game.win = win
 	end_game.monster = monster

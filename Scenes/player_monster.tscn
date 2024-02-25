@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkmpcui7mdots"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_pa2mp"]
-[ext_resource type="AudioStream" uid="uid://pyvotp5i1t2p" path="res://Sounds/monster walk.mp3" id="2_xi2dt"]
-[ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
+[ext_resource type="AudioStream" uid="uid://dnon284ovogle" path="res://Sounds/monster walk.mp3" id="2_xi2dt"]
+[ext_resource type="AudioStream" uid="uid://dop5cfqjor24a" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
 [ext_resource type="PackedScene" uid="uid://cskl2rusy1uni" path="res://Scenes/monster_x.tscn" id="5_6k1lf"]
 [ext_resource type="PackedScene" uid="uid://dddtwuhgv8jo6" path="res://Scenes/monster_base.tscn" id="5_janvk"]
 

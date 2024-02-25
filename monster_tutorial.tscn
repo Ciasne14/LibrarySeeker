@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cao51737i63n"]
+[gd_scene load_steps=3 format=3 uid="uid://cao51737i63n"]
 
-[ext_resource type="Texture2D" uid="uid://ba16sd0qd1x4m" path="res://Textures/monsterTutorial.png" id="1_kugj8"]
+[ext_resource type="Texture2D" uid="uid://c3ou6w84o5lj6" path="res://Textures/monsterTutorial.png" id="1_kugj8"]
+[ext_resource type="Script" path="res://Scenes/Scripts/tutorial.gd" id="2_eubbu"]
 
-[node name="MonsterTutorial" type="TextureRect"]
+[node name="Tutorial" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,6 +14,7 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_kugj8")
+script = ExtResource("2_eubbu")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -45,7 +47,8 @@ Devour soul or protect him from escapaing in given time.
 
 "
 
-[node name="Button" type="Button" parent="Label"]
+[node name="Start" type="Button" parent="Label"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
