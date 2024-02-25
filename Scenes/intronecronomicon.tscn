@@ -142,7 +142,8 @@ _data = {
 background_energy_multiplier = 0.32
 sdfgi_enabled = true
 fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
+fog_light_color = Color(0.419608, 0.419608, 0.419608, 1)
+fog_density = 0.05
 
 [node name="intronecronomicon" type="Node3D"]
 script = ExtResource("1_2atqa")
