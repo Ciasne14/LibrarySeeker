@@ -13,6 +13,7 @@ var audio_player
 var stepStart = false
 
 func setup():
+	audio_player=$Heels
 	if is_multiplayer_authority():
 		camera.current = true
 		#$PlayerArea.area_shape_entered.connect(self._on_area_3d_area_enxtered)
