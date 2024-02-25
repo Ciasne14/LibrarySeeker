@@ -1,14 +1,18 @@
-extends Control
+extends Node3D
 
 var win = false
 var monster = false
+var whoWin = ""
 
 @onready var status_label = %Status
-@onready var scream: AudioStreamPlayer = $Scream
+@onready var scream: AudioStreamPlayer = %Scream
 
 @onready var again_btn: Button = %Again
 @onready var swap_btn: Button = %Swap
 @onready var lobby_btn: Button = %Lobby
+
+@onready var monster_node = %Monster
+@onready var player_node = %Player
 
 var button_pressed_value = ""
 
@@ -19,6 +23,13 @@ func _ready():
 		status_label.set_text("You Loose...")
 	if monster == false && win == false:
 		scream.play()
+	if whoWin == "Monster":
+		player_node.hide()
+		monster_node.show()
+	if whoWin == "Capsule":
+		player_node.show()
+		monster_node.hide()
+
 	again_btn.pressed.connect(self._on_again_pressed)
 	swap_btn.pressed.connect(self._on_swap_pressed)
 	lobby_btn.pressed.connect(self._on_lobby_pressed)

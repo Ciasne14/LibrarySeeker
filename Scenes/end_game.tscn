@@ -1,81 +1,86 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqe7qghnsfhrt"]
+[gd_scene load_steps=5 format=3 uid="uid://dqe7qghnsfhrt"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/end_game.gd" id="1_fo1t4"]
 [ext_resource type="AudioStream" uid="uid://yvj0y4mi3pn6" path="res://Sounds/scream.mp3" id="2_33ci5"]
+[ext_resource type="PackedScene" path="res://Scenes/player_won.tscn" id="2_gn7fh"]
+[ext_resource type="PackedScene" path="res://Scenes/monster_won.tscn" id="3_thgdm"]
 
-[node name="EndGame" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="EndGame" type="Node3D"]
 script = ExtResource("1_fo1t4")
 
-[node name="Status" type="Label" parent="."]
+[node name="Player" parent="." instance=ExtResource("2_gn7fh")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Monster" parent="." instance=ExtResource("3_thgdm")]
+unique_name_in_owner = true
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Status" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 120)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -113.5
+offset_top = -60.0
+offset_right = 113.5
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "You Win!!"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
+offset_top = -116.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 120
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="Again" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Again" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 2.08165e-12)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Try Again"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Swap" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Swap" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 2.08165e-12)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Swap"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Lobby" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Lobby" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 2.08165e-12)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Lobby"
 
-[node name="Scream" type="AudioStreamPlayer" parent="."]
+[node name="Scream" type="AudioStreamPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
 stream = ExtResource("2_33ci5")
 
-[node name="Mniam" type="AudioStreamPlayer" parent="."]
+[node name="Mniam" type="AudioStreamPlayer" parent="CanvasLayer"]

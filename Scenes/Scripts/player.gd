@@ -91,21 +91,34 @@ func _on_area_3d_area_entered(area):
 	if is_multiplayer_authority() == false:
 		return
 	if area.name == "PlayerArea":
-		var win = false
-		var monster = name == "Monster"
 		var colideWith = area.get_parent().name
-		if name == "Monster" && colideWith == "Capsule":
-			win = true
-		if name == "Capsule" && colideWith == "Monster":
-			win = false
-		var end_game = load("res://Scenes/end_game.tscn").instantiate()
-		end_game.win = win
-		end_game.monster = monster
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().get_root().add_child(end_game)
-		get_node("/root/Library").queue_free()
-	if area.name == "Ending":
-		print ("GG Easy")
+		end_game(colideWith)
+	if name == "Capsule" && area.name == "Ending":
+		end_game.rpc(area.name)
+		end_game(area.name)
+
+@rpc("any_peer")
+func end_game(colideWith):
+	var win = false
+	var monster = name == "Monster"
+	var whoWin
+	if name == "Monster" && colideWith == "Capsule":
+		win = true
+	if name == "Capsule" && colideWith == "Monster":
+		win = false
+	if name == "Capsule" && colideWith == "Ending":
+		win = true
+	if colideWith == "Ending":
+		whoWin = "Capsule"
+	if colideWith == "Monster" || colideWith == "Capsule":
+		whoWin = "Monster"
+	var end_game = load("res://Scenes/end_game.tscn").instantiate()
+	end_game.win = win
+	end_game.monster = monster
+	end_game.whoWin = whoWin
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().get_root().add_child(end_game)
+	get_node("/root/Library").queue_free()
 
 
 func _on_step_timer_timeout():
