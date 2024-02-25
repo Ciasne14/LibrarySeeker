@@ -57,7 +57,7 @@ wait_time = 15.0
 [node name="MonsterConstantSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_xi2dt")
 autoplay = true
-max_distance = 30.0
+max_distance = 50.0
 
 [node name="BackGroundMusic" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_f62qv")
@@ -74,6 +74,8 @@ replication_config = SubResource("SceneReplicationConfig_1kr6n")
 
 [node name="monster_bsae" parent="." instance=ExtResource("5_janvk")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.95401, 0)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

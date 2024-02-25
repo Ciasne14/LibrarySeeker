@@ -172,10 +172,10 @@ draw_pass_1 = SubResource("QuadMesh_koufn")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(1, 0.180392, 0.121569, 1)
-light_energy = 6.029
+light_energy = 15.0
 light_indirect_energy = 6.181
 light_volumetric_fog_energy = 8.467
 light_size = 0.619
 distance_fade_enabled = true
 distance_fade_begin = 619.23
-omni_range = 30.0
+omni_range = 60.0
