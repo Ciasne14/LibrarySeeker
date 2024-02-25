@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkmpcui7mdots"]
+[gd_scene load_steps=10 format=3 uid="uid://dkmpcui7mdots"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_pa2mp"]
 [ext_resource type="AudioStream" uid="uid://dnon284ovogle" path="res://Sounds/monster walk.mp3" id="2_xi2dt"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cskl2rusy1uni" path="res://Scenes/monster_x.tscn" id="5_6k1lf"]
 [ext_resource type="PackedScene" uid="uid://dddtwuhgv8jo6" path="res://Scenes/monster_base.tscn" id="5_janvk"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
-radius = 3.75868
-height = 7.77683
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_igq23"]
+height = 2.93119
+radius = 3.0617
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n8tjt"]
+radius = 4.30266
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkg8p"]
 
@@ -27,18 +30,18 @@ properties/3/spawn = true
 properties/3/replication_mode = 1
 
 [node name="Monster" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22158, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.45844, 2.08165e-12)
 script = ExtResource("1_pa2mp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0192673, 0, 0.545865)
-shape = SubResource("CapsuleShape3D_broob")
+shape = SubResource("CylinderShape3D_igq23")
 
 [node name="PlayerArea" type="Area3D" parent="." groups=["Player"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0666375, 0, 0.461411)
-shape = SubResource("CapsuleShape3D_broob")
+shape = SubResource("CylinderShape3D_n8tjt")
 
 [node name="Capsule" type="MeshInstance3D" parent="."]
 visible = false

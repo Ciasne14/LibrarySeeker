@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cao51737i63n"]
 
-[ext_resource type="Texture2D" uid="uid://c3ou6w84o5lj6" path="res://Textures/monsterTutorial.png" id="1_kugj8"]
+[ext_resource type="Texture2D" uid="uid://c3ou6w84o5lj6" path="res://textures/monsterTutorial.png" id="1_kugj8"]
 [ext_resource type="Script" path="res://Scenes/Scripts/tutorial.gd" id="2_eubbu"]
 
 [node name="Tutorial" type="TextureRect"]

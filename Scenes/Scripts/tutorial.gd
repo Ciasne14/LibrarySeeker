@@ -8,16 +8,17 @@ func _ready():
 	start_btn.pressed.connect(self._on_start_pressed)
 
 func _on_start_pressed():
-	load_library.rpc()
+	load_blabla.rpc()
 	if waiting:
-		load_library()
+		get_node("/root/Lobby").load_library()
+		delete_it_kurwa()
 	else:
 		start_btn.text = "Waiting for opponent..."
 		start_btn.disabled = true
 	waiting = true
 
 @rpc("any_peer")
-func load_library():
+func load_blabla():
 	if waiting:
 		get_node("/root/Lobby").load_library()
 		delete_it_kurwa()

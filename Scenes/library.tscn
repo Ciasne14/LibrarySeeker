@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Scripts/library.gd" id="1_64ouq"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
 [ext_resource type="PackedScene" uid="uid://dkmpcui7mdots" path="res://Scenes/player_monster.tscn" id="3_npfae"]
-[ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://Textures/wood_floor_diff_4k.jpg" id="3_wr52s"]
-[ext_resource type="PackedScene" uid="uid://s22t6e7wvmrr" path="res://Scenes/bookcase.tscn" id="4_urprm"]
+[ext_resource type="Texture2D" uid="uid://c8x71b5xc0jhd" path="res://textures/wood_floor_diff_4k.jpg" id="3_wr52s"]
 [ext_resource type="PackedScene" uid="uid://d0kudf0cj8w78" path="res://Scenes/wall.tscn" id="5_5tym4"]
 [ext_resource type="PackedScene" uid="uid://bp0v3soogynbo" path="res://Scenes/chandelier.tscn" id="6_1km3i"]
 [ext_resource type="PackedScene" uid="uid://detaqawfp2vjm" path="res://Scenes/desk.tscn" id="8_jcqgw"]
@@ -56,7 +55,7 @@ mesh = SubResource("PlaneMesh_eg6b8")
 skeleton = NodePath("../..")
 
 [node name="Ceiling" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.999988, -0.00486935, 0, 0.00486935, -0.999988, 0, 0, 0, 1, 0, 7.0737, 0)
+transform = Transform3D(-0.999988, -0.00486935, 0, 0.00486935, -0.999988, 0, 0, 0, 1, 0, 63.9516, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
 shape = SubResource("BoxShape3D_3j74p")

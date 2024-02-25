@@ -25,7 +25,7 @@ func _ready():
 	
 	host_btn.mouse_entered.connect(self._on_mouse_entered)
 	join_btn.mouse_entered.connect(self._on_mouse_entered)
-	exit_btn.mouse_entered.connect(self._on_mouse_entered)	
+	exit_btn.mouse_entered.connect(self._on_mouse_exit_entered)	
 	
 
 # Callback from SceneTree.
@@ -38,6 +38,8 @@ func swap():
 	swapPlayers = !swapPlayers
 
 func load_tutorials():
+	if has_node("/root/Tutorial"):
+		get_node("/root/Tutorial").free()
 	if (multiplayer.is_server() && swapPlayers == false) || (swapPlayers && multiplayer.is_server() == false):
 		load_monster_tutorial()
 	else:
@@ -110,6 +112,9 @@ func end_game(with_error = ""):
 func _on_mouse_entered():
 	if host_btn.disabled == false:
 		%AudioStreamPlayer3D.play()
+
+func _on_mouse_exit_entered():
+	%AudioStreamPlayer3D.play()
 
 func start_as_host():
 	preload("res://Scenes/monster_x.tscn")
