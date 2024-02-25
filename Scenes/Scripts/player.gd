@@ -13,10 +13,6 @@ var audio_player
 var stepStart = false
 
 func setup():
-	print(name)
-	print(multiplayer.get_unique_id())
-	print(is_multiplayer_authority())
-	print()
 	if name == "Capsule":
 		audio_player=$Heels
 	if is_multiplayer_authority():
@@ -25,6 +21,8 @@ func setup():
 		if name == "Monster":
 			worldEnvironment.environment.background_energy_multiplier = 0
 			MOVE_SPEED = 13
+		if name == "Capsule":
+			worldEnvironment.environment.fog_enabled = false
 		$PlayerArea.body_entered.connect(self._on_area_3d_area_entered)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		print(IP.resolve_hostname(str(OS.get_environment("Laptop-Lenovo")),1))
@@ -90,9 +88,7 @@ func _on_dash_timer_timeout():
 	
 
 func _on_area_3d_area_entered(area):
-	if is_multiplayer_authority() == false:
-		return
-	if area.name == "PlayerArea":
+	if area.name == "PlayerArea" && is_multiplayer_authority():
 		var colideWith = area.get_parent().name
 		end_game(colideWith)
 	if name == "Capsule" && area.name == "Ending":
