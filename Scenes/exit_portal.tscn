@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://cakq2g3o267dy" path="res://Sounds/Portal Sound Effect (SFX).mp3" id="5_hjte4"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1e0q5"]
-particle_flag_disable_z = true
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 0.0
@@ -117,7 +116,6 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_8hyrn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_upcyj"]
-particle_flag_disable_z = true
 angular_velocity_max = 50.0
 gravity = Vector3(0, 0.5, 0)
 scale_min = 0.1
@@ -150,16 +148,17 @@ size = Vector2(0.5, 0.5)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_43w38"]
 
 [node name="ExitPortal" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81192, 0, 2.72547)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-amount = 6
+amount = 400
 sub_emitter = NodePath("../GPUParticles3D2")
 process_material = SubResource("ParticleProcessMaterial_1e0q5")
 draw_pass_1 = SubResource("QuadMesh_563ts")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 200
+amount = 400
 sub_emitter = NodePath("../GPUParticles3D3")
 process_material = SubResource("ParticleProcessMaterial_slyip")
 draw_passes = 3
@@ -169,7 +168,7 @@ draw_pass_3 = SubResource("QuadMesh_b0nqd")
 
 [node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 200
+amount = 400
 process_material = SubResource("ParticleProcessMaterial_upcyj")
 draw_pass_1 = SubResource("QuadMesh_koufn")
 

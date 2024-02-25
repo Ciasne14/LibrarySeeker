@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgu0cilobgk6w"]
+
+[ext_resource type="PackedScene" uid="uid://fp1emp8b0af0" path="res://Models/bookcase/scene.gltf" id="1_tfewv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6kil7"]
+size = Vector3(4.02295, 4.52795, 0.905212)
+
+[node name="bookcase" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_tfewv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0410156, 2.25153, 0.244415)
+shape = SubResource("BoxShape3D_6kil7")
