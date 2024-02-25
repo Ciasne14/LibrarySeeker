@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7b7w7higgxba"]
+
+[ext_resource type="PackedScene" uid="uid://c2rowoqt83hg3" path="res://Models/Desk/scene.gltf" id="1_0uj8y"]
+[ext_resource type="PackedScene" uid="uid://fp1emp8b0af0" path="res://Models/bookcase/scene.gltf" id="2_g7wie"]
+[ext_resource type="PackedScene" uid="uid://cr38bd2825k34" path="res://Models/armchair2/scene.gltf" id="3_6gnug"]
+[ext_resource type="PackedScene" uid="uid://ni1outhfm1al" path="res://Models/chandelier/scene.gltf" id="4_gclkx"]
+[ext_resource type="PackedScene" uid="uid://cqgb640be7rtg" path="res://Scenes/exit_portal.tscn" id="5_6iogr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ul5f"]
+size = Vector2(300, 300)
+
+[sub_resource type="Environment" id="Environment_vx8qk"]
+background_energy_multiplier = 0.0
+fog_enabled = true
+fog_density = 0.0991
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_8ul5f")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_0uj8y")]
+transform = Transform3D(-0.100153, 0, 0.994972, 0, 1, 0, -0.994972, 0, -0.100153, -2.52187, 0.655479, 1.05683)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("2_g7wie")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -2, 0, -3)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("2_g7wie")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 2, 0, -3)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("3_6gnug")]
+transform = Transform3D(0.0204362, 0, -0.0144001, 0, 0.025, 0, 0.0144001, 0, 0.0204362, -0.163264, 3.8147e-06, 0.11695)
+
+[node name="Sketchfab_Scene5" parent="." instance=ExtResource("4_gclkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99503, 4.43614, 0)
+
+[node name="ExitPortal" parent="." instance=ExtResource("5_6iogr")]
+transform = Transform3D(0.62347, 0, 0.781847, 0, 1, 0, -0.781847, 0, 0.62347, -0.0311422, 1.36822, -1.99252)
+
+[node name="ExitPortal2" parent="." instance=ExtResource("5_6iogr")]
+transform = Transform3D(0.62347, 0, 0.781847, 0, 1, 0, -0.781847, 0, 0.62347, 0.271671, 1.4806, -1.87436)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vx8qk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.974276, -3.62946e-09, 0.225359, -0.0598076, 0.964142, 0.258561, -0.217278, -0.265388, 0.93934, 1.55334, 3.11722, 5.58137)

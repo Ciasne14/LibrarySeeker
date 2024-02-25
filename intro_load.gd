@@ -24,4 +24,12 @@ func _on_timer_fade_in_fear_timeout():
 
 func _on_load_main_menu_timeout():
 	$LoadMainMenu.stop()
-	get_tree().quit()
+	$LastFadeOut.wait_time = 3
+	$AnimationPlayer.play("FadeOut")
+	$LastFadeOut.start()
+
+func _on_last_fade_out_timeout():
+	$LastFadeOut.stop()
+	var intro = load("res://Scenes/intronecronomicon.tscn").instantiate()
+	get_tree().get_root().add_child(intro)
+	queue_free()

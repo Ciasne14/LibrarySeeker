@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://jda6ndsipw4a"]
+
+[ext_resource type="Texture2D" uid="uid://bfpy6mrf45e74" path="res://logogogogo.png" id="1_3n41g"]
+[ext_resource type="Script" path="res://intro_load.gd" id="2_vbj0i"]
+
+[sub_resource type="Animation" id="Animation_ce84n"]
+resource_name = "FadeIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7a1gg"]
+resource_name = "FadeOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wry8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avdra"]
+_data = {
+"FadeIn": SubResource("Animation_ce84n"),
+"FadeOut": SubResource("Animation_7a1gg"),
+"RESET": SubResource("Animation_wry8p")
+}
+
+[node name="TextureRect" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3n41g")
+expand_mode = 1
+script = ExtResource("2_vbj0i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -152.0
+offset_top = -80.0
+offset_right = 2080.0
+offset_bottom = 1184.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_avdra")
+}
+
+[node name="TimerFadeInGameBy" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="TimerFadeInFear" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="LoadMainMenu" type="Timer" parent="."]
+
+[node name="LastFadeOut" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerFadeInGameBy" to="." method="_on_timer_fade_in_game_by_timeout"]
+[connection signal="timeout" from="TimerFadeInFear" to="." method="_on_timer_fade_in_fear_timeout"]
+[connection signal="timeout" from="LoadMainMenu" to="." method="_on_load_main_menu_timeout"]
+[connection signal="timeout" from="LastFadeOut" to="." method="_on_last_fade_out_timeout"]

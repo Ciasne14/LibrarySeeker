@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bw4x7u4x3v035"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_s3y5f"]
-[ext_resource type="AudioStream" uid="uid://bexis2v0yxmvn" path="res://Sounds/heelsSound.mp3" id="2_d4qjm"]
-[ext_resource type="AudioStream" uid="uid://dop5cfqjor24a" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="3_linwd"]
-[ext_resource type="AudioStream" uid="uid://yvj0y4mi3pn6" path="res://Sounds/scream.mp3" id="3_s4iuj"]
+[ext_resource type="AudioStream" uid="uid://dd04i1lq41yii" path="res://Sounds/heelsSound.mp3" id="2_d4qjm"]
+[ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="3_linwd"]
+[ext_resource type="AudioStream" uid="uid://bkn7ki2vfrnju" path="res://Sounds/scream.mp3" id="3_s4iuj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
 radius = 0.897707
