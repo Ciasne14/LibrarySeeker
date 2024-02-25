@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var MOVE_SPEED = 15
+var MOVE_SPEED = 8
 var DASH_SPEED = 0
 var DASH_AVAILABLE = true
 const MOUSE_SENSITIVITY = 1000
@@ -18,7 +18,7 @@ func setup():
 		#$PlayerArea.area_shape_entered.connect(self._on_area_3d_area_enxtered)
 		if name == "Monster":
 			worldEnvironment.environment.background_energy_multiplier = 0
-			MOVE_SPEED = 30
+			MOVE_SPEED = 13
 	else:
 		camera.current = false
 		#$Capsule.show()
