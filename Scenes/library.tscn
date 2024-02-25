@@ -3348,5 +3348,6 @@ offset_top = 28.0
 offset_right = 20.0
 offset_bottom = 51.0
 grow_horizontal = 2
+text = "Time left: 180"
 
 [connection signal="timeout" from="EndGameTimer" to="." method="_on_end_game_timer_timeout"]

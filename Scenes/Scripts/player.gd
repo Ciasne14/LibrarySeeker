@@ -24,7 +24,6 @@ func setup():
 		#$Capsule.show()
 		#$monsterX.hide()
 		#$CameraPivot/SpotLight3D.hide()
-	audio_player = $Heels
 	$PlayerArea.body_entered.connect(self._on_area_3d_area_entered)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print(IP.resolve_hostname(str(OS.get_environment("Laptop-Lenovo")),1))
