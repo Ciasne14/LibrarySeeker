@@ -6,6 +6,8 @@ signal game_finished()
 @onready var player = %Capsule
 
 var swap = false
+var timeLeft = 0
+var maxTime = 180
 
 func _ready():
 	# By default, all nodes in server inherit from master,
@@ -35,3 +37,9 @@ func _ready():
 #func _physics_process(delta):
 	#if Input.is_action_pressed("ui_cancel"):
 		#game_finished.emit()
+
+
+func _on_end_game_timer_timeout():
+	timeLeft =+ 1
+	if (timeLeft<maxTime):
+		$CountDown.text = maxTime-timeLeft

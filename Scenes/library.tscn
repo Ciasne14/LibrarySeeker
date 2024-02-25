@@ -3335,3 +3335,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0852, -4.76837e-07, -88.63
 
 [node name="Table and chairs9" parent="Envio" instance=ExtResource("10_vu11d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0852, -4.76837e-07, -83.4967)
+
+[node name="EndGameTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CountDown" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 28.0
+offset_right = 20.0
+offset_bottom = 51.0
+grow_horizontal = 2
+
+[connection signal="timeout" from="EndGameTimer" to="." method="_on_end_game_timer_timeout"]
