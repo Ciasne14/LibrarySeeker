@@ -6,6 +6,7 @@ var whoWin = ""
 
 @onready var status_label = %Status
 @onready var scream: AudioStreamPlayer = %Scream
+@onready var mniam: AudioStreamPlayer = %Mniam
 
 @onready var again_btn: Button = %Again
 @onready var swap_btn: Button = %Swap
@@ -23,6 +24,8 @@ func _ready():
 		status_label.set_text("You Loose...")
 	if monster == false && win == false:
 		scream.play()
+	else:
+		mniam.play()
 	if whoWin == "Monster":
 		player_node.hide()
 		monster_node.show()

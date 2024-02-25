@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqe7qghnsfhrt"]
+[gd_scene load_steps=6 format=3 uid="uid://dqe7qghnsfhrt"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/end_game.gd" id="1_fo1t4"]
-[ext_resource type="AudioStream" uid="uid://yvj0y4mi3pn6" path="res://Sounds/scream.mp3" id="2_33ci5"]
-[ext_resource type="PackedScene" path="res://Scenes/player_won.tscn" id="2_gn7fh"]
-[ext_resource type="PackedScene" path="res://Scenes/monster_won.tscn" id="3_thgdm"]
+[ext_resource type="AudioStream" uid="uid://bkn7ki2vfrnju" path="res://Sounds/scream.mp3" id="2_33ci5"]
+[ext_resource type="PackedScene" uid="uid://cq8bhm0fbuken" path="res://Scenes/player_won.tscn" id="2_gn7fh"]
+[ext_resource type="PackedScene" uid="uid://c57ibmm5naf6i" path="res://Scenes/monster_won.tscn" id="3_thgdm"]
+[ext_resource type="AudioStream" uid="uid://c7qhbr3k8ggdh" path="res://Sounds/monsterDevour.mp3" id="5_vbxfd"]
 
 [node name="EndGame" type="Node3D"]
 script = ExtResource("1_fo1t4")
@@ -84,3 +85,5 @@ unique_name_in_owner = true
 stream = ExtResource("2_33ci5")
 
 [node name="Mniam" type="AudioStreamPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+stream = ExtResource("5_vbxfd")
