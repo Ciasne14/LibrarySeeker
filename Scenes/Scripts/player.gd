@@ -72,12 +72,13 @@ func _process(delta):
 	direction.y = 0
 	direction = direction.normalized()
 	velocity = direction * (MOVE_SPEED+DASH_SPEED)
-	if velocity.length() > 0:
-		if !audio_player.playing:
-			audio_player.play()
-	else:
-		if audio_player.playing:
-			audio_player.stop()
+	if name == "Capsule":
+		if velocity.length()> 0:
+			if !audio_player.playing:
+				audio_player.play()
+		else:
+			if audio_player.playing:
+				audio_player.stop()
 	DASH_SPEED = 0
 	move_and_slide()
 

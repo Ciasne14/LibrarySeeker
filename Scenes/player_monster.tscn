@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkmpcui7mdots"]
+[gd_scene load_steps=9 format=3 uid="uid://dkmpcui7mdots"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_pa2mp"]
-[ext_resource type="AudioStream" uid="uid://bexis2v0yxmvn" path="res://Sounds/heelsSound.mp3" id="2_c60i0"]
-[ext_resource type="AudioStream" uid="uid://dop5cfqjor24a" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
+[ext_resource type="AudioStream" uid="uid://pyvotp5i1t2p" path="res://Sounds/monster walk.mp3" id="2_xi2dt"]
+[ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
 [ext_resource type="PackedScene" uid="uid://cskl2rusy1uni" path="res://Scenes/monster_x.tscn" id="5_6k1lf"]
+[ext_resource type="PackedScene" uid="uid://dddtwuhgv8jo6" path="res://Scenes/monster_base.tscn" id="5_janvk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
 radius = 2.33346
@@ -50,23 +51,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.131532, -1.5376)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225881, 0.26737)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.989331, 0.145686, 0, -0.145686, 0.989331, 0, -0.554731, 0.0710931)
-light_color = Color(1, 0.988235, 0.533333, 1)
-light_energy = 10.0
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-shadow_enabled = true
-shadow_bias = 0.57
-shadow_blur = 3.828
-spot_range = 57.166
-spot_angle = 30.0
-
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 15.0
 
-[node name="Heels" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_c60i0")
+[node name="MonsterConstantSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_xi2dt")
+max_distance = 30.0
 
 [node name="BackGroundMusic" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_f62qv")
@@ -80,6 +70,9 @@ transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1kr6n")
+
+[node name="monster_bsae" parent="." instance=ExtResource("5_janvk")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.95401, 0)
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

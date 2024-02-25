@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw4x7u4x3v035"]
+[gd_scene load_steps=9 format=3 uid="uid://bw4x7u4x3v035"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_s3y5f"]
 [ext_resource type="AudioStream" uid="uid://dd04i1lq41yii" path="res://Sounds/heelsSound.mp3" id="2_d4qjm"]
 [ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="3_linwd"]
 [ext_resource type="AudioStream" uid="uid://bkn7ki2vfrnju" path="res://Sounds/scream.mp3" id="3_s4iuj"]
+[ext_resource type="PackedScene" uid="uid://ggbuusr28kcn" path="res://Scenes/soul.tscn" id="5_rp1s7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
 radius = 0.897707
@@ -34,6 +35,7 @@ shape = SubResource("CapsuleShape3D_broob")
 shape = SubResource("CapsuleShape3D_broob")
 
 [node name="Capsule" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_gkg8p")
 
 [node name="CameraPivot" type="Node3D" parent="."]
@@ -62,6 +64,9 @@ autoplay = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_s7sj5")
+
+[node name="Soul" parent="." instance=ExtResource("5_rp1s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

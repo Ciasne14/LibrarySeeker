@@ -38,4 +38,23 @@ Mouse - look and rotate
 You are moving faster than the mortals, but you are constantly emmiting light and sound.
 
 Win condition: 
-Devour soul or protect him from escapaing in given time."
+Devour soul or protect him from escapaing in given time.
+
+
+
+
+"
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -308.0
+offset_top = -40.0
+offset_right = 308.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"

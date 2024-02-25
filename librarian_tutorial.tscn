@@ -27,7 +27,7 @@ offset_right = 343.5
 offset_bottom = 141.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "As sould of the librarian, you have to use one of the portals to escape. Find it in the library.
+text = "As soul of the librarian, you have to use one of the portals to escape. Find it in the library.
 
 W - Forward
 A - Left
@@ -39,4 +39,22 @@ Mouse - look and rotate
 You are moving slower than the elder one, but you are smaller and invisible in darkness.
 
 Win condition: 
-Use portal before time runs out."
+Use portal before time runs out.
+
+
+
+"
+
+[node name="Button" type="Button" parent="Label"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -308.0
+offset_top = -40.0
+offset_right = 308.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
