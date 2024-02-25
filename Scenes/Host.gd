@@ -10,6 +10,7 @@ const DEFAULT_PORT = 8910
 var peer: ENetMultiplayerPeer
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		# Connect all the callbacks related to networking.
 	multiplayer.peer_connected.connect(self._player_connected)
 	multiplayer.peer_disconnected.connect(self._player_disconnected)

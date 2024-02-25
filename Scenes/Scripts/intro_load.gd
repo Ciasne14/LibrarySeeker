@@ -3,6 +3,7 @@ extends TextureRect
 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$AnimationPlayer.play("FadeIn")
 	$TimerFadeInGameBy.wait_time=3
 	$TimerFadeInGameBy.start()
