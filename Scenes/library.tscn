@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=16 format=3 uid="uid://bt60x0t52not"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/library.gd" id="1_64ouq"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://detaqawfp2vjm" path="res://Scenes/desk.tscn" id="8_jcqgw"]
 [ext_resource type="PackedScene" uid="uid://bhy7lrplxgdj" path="res://Scenes/armchair.tscn" id="9_nfkly"]
 [ext_resource type="PackedScene" uid="uid://bmohfmmw1oi52" path="res://Scenes/table_and_chairs.tscn" id="10_vu11d"]
+[ext_resource type="PackedScene" uid="uid://cqgb640be7rtg" path="res://Scenes/exit_portal.tscn" id="11_ppijb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3j74p"]
 size = Vector3(297.614, 0.630859, 299.057)
@@ -3338,6 +3339,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0852, -4.76837e-07, -83.49
 
 [node name="EndGameTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="ExitPortal" parent="." instance=ExtResource("11_ppijb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 1, -1)
 
 [node name="CountDown" type="Label" parent="."]
 anchors_preset = 5

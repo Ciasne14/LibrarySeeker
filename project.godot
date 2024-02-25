@@ -23,6 +23,7 @@ BackGroundMusic="*res://Scenes/back_ground_music.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/scale=2.0
 
 [input]
