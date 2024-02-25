@@ -55,7 +55,7 @@ mesh = SubResource("PlaneMesh_eg6b8")
 skeleton = NodePath("../..")
 
 [node name="Ceiling" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.999988, -0.00486935, 0, 0.00486935, -0.999988, 0, 0, 0, 1, 0, 11.0737, 0)
+transform = Transform3D(-0.999988, -0.00486935, 0, 0.00486935, -0.999988, 0, 0, 0, 1, 0, 7.0737, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
 shape = SubResource("BoxShape3D_3j74p")
