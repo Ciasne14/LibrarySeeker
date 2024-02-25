@@ -42,6 +42,6 @@ func _ready():
 func _on_end_game_timer_timeout():
 	timeLeft = timeLeft+ 1
 	if (timeLeft<maxTime):
-		$CountDown.text = ("Time left: " & maxTime-timeLeft)
+		$CountDown.set_text("Time left: " + str(maxTime-timeLeft))
 	if timeLeft == 0:
 		print ("time out")
