@@ -16,7 +16,8 @@ background_energy_multiplier = 0.0
 fog_enabled = true
 fog_density = 0.0991
 
-[node name="MainMenu" type="Node3D"]
+[node name="Lobby" type="Node3D"]
+script = ExtResource("6_dgdyo")
 
 [node name="floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_8ul5f")
@@ -49,7 +50,12 @@ environment = SubResource("Environment_vx8qk")
 transform = Transform3D(0.974276, -3.62946e-09, 0.225359, -0.0598076, 0.964142, 0.258561, -0.217278, -0.265388, 0.93934, 1.55334, 3.11722, 5.58137)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 follow_viewport_enabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CanvasLayer"]
+unique_name_in_owner = true
+stream = ExtResource("7_lnjki")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -110,10 +116,6 @@ custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "𝖍𝖔𝖘𝖙"
-script = ExtResource("6_dgdyo")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Host"]
-stream = ExtResource("7_lnjki")
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -134,19 +136,12 @@ custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "𝖏𝖔𝖎𝖓"
-script = ExtResource("6_dgdyo")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Join"]
-stream = ExtResource("7_lnjki")
 
 [node name="Exit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 2.08165e-12)
 layout_mode = 2
 text = "𝖊𝖝𝖎𝖙"
-script = ExtResource("6_dgdyo")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/Exit"]
-stream = ExtResource("7_lnjki")
 
 [node name="Status" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -155,10 +150,3 @@ size_flags_vertical = 3
 text = "status"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Host" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Host" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Host" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Host" method="_on_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Join" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Join" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Join" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Join" method="_on_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/Exit" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/Exit" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/Exit" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/Exit" method="_on_pressed"]

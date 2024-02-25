@@ -1,8 +1,9 @@
-extends Button
+extends Node3D
 
 @onready var address_input = %Address
 @onready var host_btn = %Host
 @onready var join_btn = %Join
+@onready var exit_btn = %Exit
 @onready var status_label = %Status
 
 const DEFAULT_PORT = 8910
@@ -15,6 +16,15 @@ func _ready():
 	multiplayer.connected_to_server.connect(self._connected_ok)
 	multiplayer.connection_failed.connect(self._connected_fail)
 	multiplayer.server_disconnected.connect(self._server_disconnected)
+	host_btn.pressed.connect(self.start_as_host)
+	join_btn.pressed.connect(self.join)
+	exit_btn.pressed.connect(self.exit)
+	
+	host_btn.mouse_entered.connect(self._on_mouse_entered)
+	join_btn.mouse_entered.connect(self._on_mouse_entered)
+	exit_btn.mouse_entered.connect(self._on_mouse_entered)	
+	
+	
 
 # Callback from SceneTree.
 func _player_connected(_id):
@@ -25,6 +35,7 @@ func _player_connected(_id):
 
 	get_tree().get_root().add_child(library)
 	hide()
+	%CanvasLayer.hide()
 
 
 func _player_disconnected(_id):
@@ -65,6 +76,7 @@ func end_game(with_error = ""):
 		get_node(^"/root/EndGame").delete_it_kurwa()
 	
 	show()
+	%CanvasLayer.show()
 
 	multiplayer.set_multiplayer_peer(null) # Remove peer.
 	host_btn.set_disabled(false)
@@ -77,8 +89,8 @@ func end_game(with_error = ""):
 
 
 func _on_mouse_entered():
-	if disabled == false:
-		$AudioStreamPlayer3D.play()
+	if host_btn.disabled == false:
+		%AudioStreamPlayer3D.play()
 
 func start_as_host():
 	preload("res://Scenes/monster_x.tscn")
@@ -114,12 +126,3 @@ func join():
 	
 func exit():
 	get_tree().quit()
-
-
-func _on_pressed():
-	if(self.name =="Host"):
-		start_as_host()
-	if(self.name =="Join"):
-		join()
-	if(self.name =="Exit"):
-		exit()
