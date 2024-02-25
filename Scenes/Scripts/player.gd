@@ -22,7 +22,7 @@ func setup():
 			worldEnvironment.environment.background_energy_multiplier = 0
 			MOVE_SPEED = 13
 		if name == "Capsule":
-			worldEnvironment.environment.fog_enabled = false
+			worldEnvironment.environment = null
 		$PlayerArea.body_entered.connect(self._on_area_3d_area_entered)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		print(IP.resolve_hostname(str(OS.get_environment("Laptop-Lenovo")),1))
@@ -97,8 +97,6 @@ func _on_area_3d_area_entered(area):
 
 @rpc("any_peer")
 func end_game(colideWith):
-	if is_multiplayer_authority() == false:
-		return
 	var win = false
 	var monster = name == "Monster"
 	var whoWin
@@ -106,7 +104,7 @@ func end_game(colideWith):
 		whoWin = "Capsule"
 	if colideWith == "Monster" || colideWith == "Capsule":
 		whoWin = "Monster"
-	win = name == whoWin
+	win = name == whoWin && is_multiplayer_authority()
 	var end_game = load("res://Scenes/end_game.tscn").instantiate()
 	end_game.win = win
 	end_game.monster = monster
