@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dddtwuhgv8jo6" path="res://Scenes/monster_base.tscn" id="5_janvk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
-radius = 2.33346
-height = 4.82544
+radius = 3.75868
+height = 7.77683
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gkg8p"]
 

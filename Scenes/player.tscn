@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ggbuusr28kcn" path="res://Scenes/soul.tscn" id="5_rp1s7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
-radius = 0.897707
+radius = 1.41053
+height = 2.82107
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ee4d"]
 albedo_color = Color(0.337255, 0.388235, 0.588235, 0.517647)
