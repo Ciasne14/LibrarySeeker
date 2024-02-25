@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://bw5bf1p7k0k1i"]
 
-[ext_resource type="Script" path="res://Scenes/intronecronomicon.gd" id="1_2atqa"]
+[ext_resource type="Script" path="res://Scenes/Scripts/intronecronomicon.gd" id="1_2atqa"]
 [ext_resource type="PackedScene" uid="uid://d2grg3w6a5oeb" path="res://Models/necronomicon/source/libro evil dead.FBX" id="1_s55ve"]
 [ext_resource type="PackedScene" uid="uid://cqgb640be7rtg" path="res://Scenes/exit_portal.tscn" id="2_mq203"]
-[ext_resource type="AudioStream" uid="uid://0g7bi68edhkv" path="res://Scenes/introSound (mp3cut.net).mp3" id="3_cu4qc"]
-[ext_resource type="AudioStream" uid="uid://cy3bd2om78wuc" path="res://Scenes/lector.mp3" id="4_0idui"]
+[ext_resource type="AudioStream" uid="uid://0g7bi68edhkv" path="res://Sounds/introSound (mp3cut.net).mp3" id="3_cu4qc"]
+[ext_resource type="AudioStream" uid="uid://bv8eb22u3udxa" path="res://Sounds/lectorZnow (audio-extractor (mp3cut.net).mp3" id="5_advoc"]
 
 [sub_resource type="Animation" id="Animation_2ukqs"]
 resource_name = "Fadeee"
@@ -20,6 +20,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.156863)]
+}
+
+[sub_resource type="Animation" id="Animation_q3v62"]
+resource_name = "Fadeeeout"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.156863), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_4fs12"]
@@ -114,22 +130,6 @@ tracks/3/keys = {
 "values": [0.458]
 }
 
-[sub_resource type="Animation" id="Animation_q3v62"]
-resource_name = "Fadeeeout"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.156863), Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ubwgf"]
 _data = {
 "Fadeee": SubResource("Animation_2ukqs"),
@@ -181,7 +181,7 @@ volume_db = -10.0
 autoplay = true
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_0idui")
+stream = ExtResource("5_advoc")
 volume_db = 10.0
 autoplay = true
 
@@ -192,4 +192,8 @@ offset_right = 2184.0
 offset_bottom = 1280.0
 color = Color(0, 0, 0, 1)
 
+[node name="LectorTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="finished" from="AudioStreamPlayer3D2" to="." method="_on_audio_stream_player_3d_2_finished"]
+[connection signal="timeout" from="LectorTimer" to="." method="_on_lector_timer_timeout"]
