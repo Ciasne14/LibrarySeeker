@@ -60,11 +60,16 @@ func end_game(with_error = ""):
 		# errors (this is why we connected deferred above).
 		get_node(^"/root/Library").free()
 	
+	if has_node("/root/EndGame"):
+		get_node(^"/root/EndGame").delete_it_kurwa()
+	
 	show()
 
 	multiplayer.set_multiplayer_peer(null) # Remove peer.
 	host_btn.set_disabled(false)
 	join_btn.set_disabled(false)
+	peer.close()
+	peer = null
 
 	status_label.set_text(with_error)
 

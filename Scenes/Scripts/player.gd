@@ -9,16 +9,16 @@ var audio_player
 
 @onready var worldEnvironment: WorldEnvironment = get_node("/root/Library/WorldEnvironment")
 @onready var stepTimer: Timer = $StepTimer
-@onready var scream_sound: AudioStreamPlayer3D = $Scream
 
 var stepStart = false
 
-func _ready():
+func setup():
 	if is_multiplayer_authority():
 		camera.current = true
-		MOVE_SPEED = 30
-		worldEnvironment.environment.background_energy_multiplier = 0
 		#$PlayerArea.area_shape_entered.connect(self._on_area_3d_area_enxtered)
+		if name == "Monster":
+			worldEnvironment.environment.background_energy_multiplier = 0
+			MOVE_SPEED = 30
 	else:
 		camera.current = false
 		#$Capsule.show()
@@ -38,44 +38,46 @@ func _input(event):
 		$CameraPivot.rotation_degrees.x = clamp($CameraPivot.rotation_degrees.x, -70, 70)
 
 func _process(delta):
+	if is_multiplayer_authority() == false:
+		return
+	
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED && Input.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	var direction = Vector3()
 	var isBtnPressed = false
 
-	if Input.is_action_pressed("move_forward") && is_multiplayer_authority():
+	if Input.is_action_pressed("move_forward"):
 		isBtnPressed = true
 		direction -= $CameraPivot.global_transform.basis.z
-	if Input.is_action_pressed("move_backward") && is_multiplayer_authority():
+	if Input.is_action_pressed("move_backward"):
 		isBtnPressed = true
 		direction += $CameraPivot.global_transform.basis.z
-	if Input.is_action_pressed("move_left") && is_multiplayer_authority():
+	if Input.is_action_pressed("move_left"):
 		isBtnPressed = true
 		direction -= $CameraPivot.global_transform.basis.x
-	if Input.is_action_pressed("move_right") && is_multiplayer_authority():
+	if Input.is_action_pressed("move_right"):
 		isBtnPressed = true
 		direction += $CameraPivot.global_transform.basis.x
-	if Input.is_action_pressed("dash") && !is_multiplayer_authority() && DASH_AVAILABLE:
+	if Input.is_action_pressed("dash") && name == "Capsule" && DASH_AVAILABLE:
 		isBtnPressed = true
 		DASH_SPEED = 1000
 		DASH_AVAILABLE=false
 		$DashTimer.start()
 		
-	if !is_multiplayer_authority() && isBtnPressed && stepStart == false:
+	if name == "Capsule" && isBtnPressed && stepStart == false:
 		stepStart = true 
 		stepTimer.start(.1)
 
-	if is_multiplayer_authority():
-		direction.y = 0
-		direction = direction.normalized()
-		velocity = direction * (MOVE_SPEED+DASH_SPEED)
-		if velocity.length() > 0:
-			if !audio_player.playing:
-				audio_player.play()
-		else:
-			if audio_player.playing:
-				audio_player.stop()
+	direction.y = 0
+	direction = direction.normalized()
+	velocity = direction * (MOVE_SPEED+DASH_SPEED)
+	if velocity.length() > 0:
+		if !audio_player.playing:
+			audio_player.play()
+	else:
+		if audio_player.playing:
+			audio_player.stop()
 	DASH_SPEED = 0
 	move_and_slide()
 
@@ -85,11 +87,19 @@ func _on_dash_timer_timeout():
 	
 
 func _on_area_3d_area_entered(area):
-	print(area.name)
+	if is_multiplayer_authority() == false:
+		return
 	if area.name == "PlayerArea":
-		scream_sound.playing = true
-		await scream_sound.finished
+		var win = false
+		var monster = name == "Monster"
+		var colideWith = area.get_parent().name
+		if name == "Monster" && colideWith == "Capsule":
+			win = true
+		if name == "Capsule" && colideWith == "Monster":
+			win = false
 		var end_game = load("res://Scenes/end_game.tscn").instantiate()
+		end_game.win = win
+		end_game.monster = monster
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().get_root().add_child(end_game)
 		get_node("/root/Library").queue_free()

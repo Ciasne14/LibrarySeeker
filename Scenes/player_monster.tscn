@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkmpcui7mdots"]
+[gd_scene load_steps=8 format=3 uid="uid://dkmpcui7mdots"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_pa2mp"]
-[ext_resource type="AudioStream" uid="uid://dd04i1lq41yii" path="res://Sounds/heelsSound.mp3" id="2_c60i0"]
-[ext_resource type="AudioStream" uid="uid://bkn7ki2vfrnju" path="res://Sounds/scream.mp3" id="3_254tt"]
-[ext_resource type="AudioStream" uid="uid://dwr65afus4x0b" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
+[ext_resource type="AudioStream" uid="uid://bexis2v0yxmvn" path="res://Sounds/heelsSound.mp3" id="2_c60i0"]
+[ext_resource type="AudioStream" uid="uid://dop5cfqjor24a" path="res://Sounds/[Horror Music No Copyright]Horror Background Music No Copyright - Non Copyrighted Scary Music.mp3" id="4_f62qv"]
 [ext_resource type="PackedScene" uid="uid://cskl2rusy1uni" path="res://Scenes/monster_x.tscn" id="5_6k1lf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_broob"]
@@ -27,7 +26,7 @@ properties/3/spawn = true
 properties/3/replication_mode = 1
 
 [node name="Monster" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95516, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22158, 0)
 script = ExtResource("1_pa2mp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -68,10 +67,6 @@ wait_time = 15.0
 
 [node name="Heels" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_c60i0")
-
-[node name="Scream" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_254tt")
-volume_db = -4.324
 
 [node name="BackGroundMusic" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_f62qv")

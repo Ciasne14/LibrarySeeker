@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqe7qghnsfhrt"]
+[gd_scene load_steps=3 format=3 uid="uid://dqe7qghnsfhrt"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/end_game.gd" id="1_fo1t4"]
+[ext_resource type="AudioStream" uid="uid://yvj0y4mi3pn6" path="res://Sounds/scream.mp3" id="2_33ci5"]
 
 [node name="EndGame" type="Control"]
 layout_mode = 3
@@ -46,6 +47,7 @@ theme_override_constants/margin_bottom = 80
 layout_mode = 2
 
 [node name="Again" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 2.08165e-12)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -56,6 +58,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Swap" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 2.08165e-12)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -66,11 +69,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Lobby" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 2.08165e-12)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Lobby"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Again" to="." method="_on_again_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Swap" to="." method="_on_swap_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Lobby" to="." method="_on_lobby_pressed"]
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_33ci5")
+
+[node name="Mniam" type="AudioStreamPlayer" parent="."]
