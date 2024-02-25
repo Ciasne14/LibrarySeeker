@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="AGHSneaker"
+config/name="Forbidden Tomes: Librarian's Misfortune"
 run/main_scene="res://Scenes/lobby.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://Textures/gameIcon.png"
 
 [autoload]
 

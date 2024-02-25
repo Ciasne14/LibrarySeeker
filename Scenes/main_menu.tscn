@@ -45,3 +45,15 @@ environment = SubResource("Environment_vx8qk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.974276, -3.62946e-09, 0.225359, -0.0598076, 0.964142, 0.258561, -0.217278, -0.265388, 0.93934, 1.55334, 3.11722, 5.58137)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = 40.0
+offset_right = 24.0
+offset_bottom = 63.0
+grow_horizontal = 2
+text = "𝕱𝖔𝖗𝖇𝖎𝖉𝖉𝖊𝖓 𝕿𝖔𝖒𝖊𝖘: 𝕷𝖎𝖇𝖗𝖆𝖗𝖎𝖆𝖓'𝖘 𝕸𝖎𝖘𝖋𝖔𝖗𝖙𝖚𝖓𝖊
+"
