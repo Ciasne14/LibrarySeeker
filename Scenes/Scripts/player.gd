@@ -7,7 +7,6 @@ const MOUSE_SENSITIVITY = 1000
 var audio_player
 @onready var camera: Camera3D = %Camera
 
-@onready var worldEnvironment: WorldEnvironment = get_node("/root/Library/WorldEnvironment")
 @onready var stepTimer: Timer = $StepTimer
 
 var stepStart = false
@@ -17,12 +16,10 @@ func setup():
 		audio_player=$Heels
 	if is_multiplayer_authority():
 		camera.current = true
+		print(name)
 		#$PlayerArea.area_shape_entered.connect(self._on_area_3d_area_enxtered)
 		if name == "Monster":
-			worldEnvironment.environment.background_energy_multiplier = 0
-			MOVE_SPEED = 13
-		if name == "Capsule":
-			worldEnvironment.environment = null
+			MOVE_SPEED = 20
 		$PlayerArea.body_entered.connect(self._on_area_3d_area_entered)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		print(IP.resolve_hostname(str(OS.get_environment("Laptop-Lenovo")),1))
