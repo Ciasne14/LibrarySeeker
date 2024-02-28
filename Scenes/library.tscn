@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bt60x0t52not"]
+[gd_scene load_steps=15 format=3 uid="uid://bt60x0t52not"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/library.gd" id="1_64ouq"]
 [ext_resource type="PackedScene" uid="uid://bw4x7u4x3v035" path="res://Scenes/player.tscn" id="1_gsflu"]
@@ -21,16 +21,6 @@ uv1_scale = Vector3(300, 300, 300)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_eg6b8"]
 size = Vector2(300, 300)
-
-[sub_resource type="Environment" id="Environment_e67bv"]
-sdfgi_use_occlusion = true
-sdfgi_read_sky_light = false
-sdfgi_bounce_feedback = 1.99
-sdfgi_cascades = 8
-sdfgi_max_distance = 3276.8
-fog_enabled = true
-fog_light_energy = 0.1
-fog_density = 0.05
 
 [node name="Library" type="Node3D"]
 script = ExtResource("1_64ouq")
@@ -63,10 +53,6 @@ shape = SubResource("BoxShape3D_3j74p")
 [node name="Ground" type="MeshInstance3D" parent="Ceiling"]
 mesh = SubResource("PlaneMesh_eg6b8")
 skeleton = NodePath("../..")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-unique_name_in_owner = true
-environment = SubResource("Environment_e67bv")
 
 [node name="Envio" type="Node3D" parent="."]
 

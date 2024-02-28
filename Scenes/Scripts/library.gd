@@ -5,8 +5,6 @@ signal game_finished()
 @onready var player2 = %Monster
 @onready var player = %Capsule
 
-@onready var worldEnvironment: WorldEnvironment = $WorldEnvironment
-
 var swap = false
 var timeLeft = 0
 var maxTime = 180
@@ -19,6 +17,8 @@ func _ready():
 		var tmp = player2
 		player2 = player
 		player = tmp
+	
+	var worldEnvironment: WorldEnvironment = get_node("/root/WorldEnvironment")
 	
 	if multiplayer.is_server():
 		# For the server, give control of player 2 to the other peer.

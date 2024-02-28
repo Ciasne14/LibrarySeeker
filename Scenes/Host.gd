@@ -27,6 +27,17 @@ func _ready():
 	join_btn.mouse_entered.connect(self._on_mouse_entered)
 	exit_btn.mouse_entered.connect(self._on_mouse_exit_entered)	
 	
+	var worldEnvironment = WorldEnvironment.new()
+	worldEnvironment.name = "WorldEnvironment"
+	var env = Environment.new()
+	env.background_energy_multiplier = 0
+	env.fog_enabled = 1
+	env.fog_light_energy = 1
+	env.fog_density = 0.0991
+	env.fog_sky_affect = 1
+	worldEnvironment.environment = env
+	get_tree().get_root().add_child.call_deferred(worldEnvironment)
+	
 
 # Callback from SceneTree.
 func _player_connected(_id):

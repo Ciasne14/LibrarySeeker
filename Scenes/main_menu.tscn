@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7b7w7higgxba"]
+[gd_scene load_steps=9 format=3 uid="uid://c7b7w7higgxba"]
 
 [ext_resource type="PackedScene" uid="uid://bvn5ua2o3esug" path="res://Models/Desk/scene.gltf" id="1_0uj8y"]
 [ext_resource type="PackedScene" uid="uid://dj4ae6ibtbaea" path="res://Models/bookcase/scene.gltf" id="2_g7wie"]
@@ -10,11 +10,6 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8ul5f"]
 size = Vector2(300, 300)
-
-[sub_resource type="Environment" id="Environment_vx8qk"]
-background_energy_multiplier = 0.0
-fog_enabled = true
-fog_density = 0.0991
 
 [node name="Lobby" type="Node3D"]
 script = ExtResource("6_dgdyo")
@@ -42,9 +37,6 @@ transform = Transform3D(0.62347, 0, 0.781847, 0, 1, 0, -0.781847, 0, 0.62347, -0
 
 [node name="ExitPortal2" parent="." instance=ExtResource("5_6iogr")]
 transform = Transform3D(0.62347, 0, 0.781847, 0, 1, 0, -0.781847, 0, 0.62347, 0.271671, 1.4806, -1.87436)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vx8qk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.974276, -3.62946e-09, 0.225359, -0.0598076, 0.964142, 0.258561, -0.217278, -0.265388, 0.93934, 1.55334, 3.11722, 5.58137)
